@@ -2,7 +2,8 @@ import React, { useReducer } from 'react'
 
 const initialState = {
     array: [],
-    length: 100
+    length: 100,
+    speed: 300
 }
 const store = React.createContext(initialState)
 const { Provider } = store
@@ -12,8 +13,13 @@ const StateProvider = ( { children } ) => {
 
         switch(action.type) {
             case 'UPDATE_ARRAY':
-                const newState = {...state, array: action.payload}
-                return newState
+                return {...state, array: action.payload}
+
+            case 'UPDATE_SPEED':
+                return {...state, speed: action.payload}
+
+            case 'UPDATE_LENGTH':
+                return {...state, length: action.payload}
 
             default:
                 throw new Error()

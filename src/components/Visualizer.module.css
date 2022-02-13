@@ -11,4 +11,5 @@
 .bar {
     width: 5px;
     background-color: rgb(224, 111, 5);
+    transition: .3s;
 }
