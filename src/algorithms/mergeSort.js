@@ -1,3 +1,5 @@
+import { addAnimation } from "../helpers/addAnimation"
+
 export const mergeSort = (array, start, end, animations) => {
     if (start === end) return
     const middle = Math.floor((start + end) / 2)
@@ -14,70 +16,49 @@ export const mergeSort = (array, start, end, animations) => {
 
     while (i <= middle && j <= end) {
         // Change color
-        animations.push({
-            description: `Comparing columns ${i} and ${j}`, 
-            index: [i, j]
-        })
-        // Revert color
-        animations.push({
-            description: `Revert the color of columns ${i} and ${j}`, 
-            index: [i, j]
-        })
-        // Overwrite value
-        if (array[i] <= array[j]) {
-            animations.push({
-                description: `Overwrite in ${k} with value: ${array[i]}`, 
-                index: [k, array[i]]
-            })
+        addAnimation(animations, `Comparing columns ${i} and ${j}`, 'COMPARE', [i, j])
 
+        // Drop down
+        addAnimation(animations, `Drop down the column ${i}`, 'DROPDOWN', [i])
+        addAnimation(animations, `Drop down the column ${j}`, 'DROPDOWN', [j])
+
+        // Revert color
+        addAnimation(animations, `Revert the color of columns ${i} and ${j}`, 'REVERT', [i, j])
+
+        // Overwrite value
+
+        if (array[i] <= array[j]) {
+            addAnimation(animations, `Overwrite in ${k} with value: ${array[i]}`, 'OVERWRITE', [k, array[i]])
             tempArray[k++] = array[i++]
         } 
         else {
-            animations.push({
-                description: `Overwrite in ${k} with value: ${array[j]}`, 
-                index: [k, array[j]]
-            })
-
+            addAnimation(animations, `Overwrite in ${k} with value: ${array[j]}`, 'OVERWRITE', [k, array[j]])
             tempArray[k++] = array[j++]
         }
     }
     // Remain values
     while (i <= middle) {
         // Change color
-        animations.push({
-            description: `The remains value: ${i}`, 
-            index: [i, i]
-        })
+        addAnimation(animations, `The remains value: ${i}`, 'COMPARE', [i, i])
+
         // Revert color
-        animations.push({
-            description: `The remains value (Revert color): ${i}`, 
-            index: [i, i]
-        })
+        addAnimation(animations, `Revert the color of columns ${i}`, 'REVERT', [i, i])
+
         // Overwrite value
-        animations.push({
-            description: `Overwrite in ${k} with value: ${array[i]}`, 
-            index: [k, array[i]]
-        })
+        addAnimation(animations, `Overwrite in ${k} with value: ${array[i]}`, 'OVERWRITE', [k, array[i]])
 
         tempArray[k++] = array[i++]
     }
     // Remain values
     while (j <= end) {
         // Change color
-        animations.push({
-            description: `The remains value: ${i}`, 
-            index: [j, j]
-        })
+        addAnimation(animations, `The remains value: ${j}`, 'COMPARE', [j, j])
+
         // Revert color
-        animations.push({
-            description: `The remains value (Revert color): ${i}`, 
-            index: [j, j]
-        })
+        addAnimation(animations, `Revert the color of columns ${j}`, 'REVERT', [j, j])
+
         // Overwrite value
-        animations.push({
-            description: `Overwrite in ${k} with value: ${array[j]}`, 
-            index: [k, array[j]]
-        })
+        addAnimation(animations, `Overwrite in ${k} with value: ${array[j]}`, 'OVERWRITE', [k, array[j]])
 
         tempArray[k++] = array[j++]
     }
