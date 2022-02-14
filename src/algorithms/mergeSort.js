@@ -1,4 +1,4 @@
-import { addAnimation, changePosition, goUp } from "../helpers/addAnimation"
+import { changeColor, addToQueue, addToArray } from "../helpers/addAnimation"
 
 export const mergeSort = (array, start, end, animations, positions) => {
     if (start === end) return
@@ -16,57 +16,50 @@ export const mergeSort = (array, start, end, animations, positions) => {
 
     while (i <= middle && j <= end) {
         // Change color
-        addAnimation(animations, `Comparing columns ${i} and ${j}`, 'COMPARE', [i, j])
-
-        // Revert color
-        //addAnimation(animations, `Revert the color of columns ${i} and ${j}`, 'REVERT', [i, j])
-
-        // Overwrite value
+        //changeColor(animations, positions, [i, j], 'black')
+        
 
         if (array[i] <= array[j]) {
             // Drop down
-            //addAnimation(animations, `Transform the column ${i} add to queue`, 'TRANSFORM', [i], `${k*5}px, 100px`)
-            changePosition(array[i], k, positions)
-            //addAnimation(animations, `Overwrite in ${k} with value: ${array[i]}`, 'OVERWRITE', [k, array[i]])
+            addToQueue(animations, positions, array[i], k)
             tempArray[k++] = array[i++]
         } 
         else {
-            //addAnimation(animations, `Transform the column ${j} add to queue`, 'TRANSFORM', [j], `${k*-15}px, 100px`)
-            changePosition(array[j], k, positions)
-            //addAnimation(animations, `Overwrite in ${k} with value: ${array[j]}`, 'OVERWRITE', [k, array[j]])
+            addToQueue(animations, positions, array[j], k)
             tempArray[k++] = array[j++]
         }
     }
     // Remain values
     while (i <= middle) {
         // Change color
-        //addAnimation(animations, `The remains value: ${i}`, 'COMPARE', [i, i])
+        //changeColor(animations, positions, [i, i], 'black')
 
         // Revert color
-        //addAnimation(animations, `Revert the color of columns ${i}`, 'REVERT', [i, i])
+        //changeColor(animations, positions, [i, j], 'yellow')
 
         // Overwrite value
-        //addAnimation(animations, `Overwrite in ${k} with value: ${array[i]}`, 'OVERWRITE', [k, array[i]])
-        changePosition(array[i], k, positions)
+        addToQueue(animations, positions, array[i], k)
         tempArray[k++] = array[i++]
     }
     // Remain values
     while (j <= end) {
         // Change color
-        //addAnimation(animations, `The remains value: ${j}`, 'COMPARE', [j, j])
+        //changeColor(animations, positions, [j, j], 'black')
 
         // Revert color
-        //addAnimation(animations, `Revert the color of columns ${j}`, 'REVERT', [j, j])
+        //changeColor(animations, positions, [i, j], 'yellow')
 
         // Overwrite value
-        //addAnimation(animations, `Overwrite in ${k} with value: ${array[j]}`, 'OVERWRITE', [k, array[j]])
-        changePosition(array[j], k, positions)
+        addToQueue(animations, positions, array[j], k)
         tempArray[k++] = array[j++]
     }
     // Overwrite array with tempArray
     for (let i = 0; i <= end; i++){
-        if (tempArray[i]) array[i] = tempArray[i]
-        goUp(array[i], positions)
+        if (tempArray[i]) {
+            array[i] = tempArray[i]
+            addToArray(animations, positions, tempArray[i])
+        }
+        //changeColor(animations, positions, [i, i], 'yellow')
     }
 
 }
