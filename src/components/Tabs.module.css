@@ -1,0 +1,15 @@
+.container {
+
+}
+
+.tabs_wrapper {
+    display: flex;
+}
+
+.tab {
+    
+}
+
+.active {
+    color: red;
+}

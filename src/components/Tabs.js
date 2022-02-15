@@ -1,12 +1,31 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { generateUniqueArray, resetColumns } from '../helpers/util'
+import { store } from '../store/store'
+
+
+import styles from './Tabs.module.css'
 
 const Tabs = () => {
-    const [activeTab, setActiveTab] = useState(0)
-    const menuList = ['Buble Sort,  Selection Sort, Insertion Sort, Merge Sort']
+    const context = useContext(store)
+    const { dispatch } = context
+
+    const menuList = ['Bubble Sort',  'Merge Sort']
+
+    const setSortingTab = index => {
+        dispatch({ type: 'SET_SORTING_TAB', payload:  index})
+        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(10) })
+        resetColumns()
+    }
 
     return (
-        <div>
-            {menuList.map(e=>(<div>{e}</div>))}
+        <div className={styles.container}>
+            <div className={styles.tabs_wrapper}>
+                {menuList.map((elem, index) => (
+                <div onClick={()=>setSortingTab(index)} className={`${styles.tab} ${context.state.sortingTab === index ? styles.active: ''}`} key={index}>
+                    {elem}
+                </div>
+                ))}
+            </div>       
         </div>
     )
 }
