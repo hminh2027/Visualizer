@@ -1,9 +1,6 @@
-import { getBubbleSortAnimation, getMergeSortAnimations } from "../algorithms"
-
-export const mergeSort = array => {
+export const animationsHandler = (animations) => {
     const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
 
-    const animations = getBubbleSortAnimation(array)
     console.log(animations)
 
     for (let i = 0; i < animations.length; i++) {
@@ -14,7 +11,7 @@ export const mergeSort = array => {
                 setTimeout(() => {
                     arrayBars[one].style.backgroundColor = animations[i].color
                     arrayBars[two].style.backgroundColor = animations[i].color
-                }, i * 3000)
+                }, i * 1000)
                 break
             
             case 'TRANFORM':
@@ -22,7 +19,7 @@ export const mergeSort = array => {
                     for (let j = 0; j < animations[i].positions.length; j++) {
                         arrayBars[j].style.transform = `translate(${animations[i].positions[j].arr[i + 1].x - animations[i].positions[j].arr[0].x}px, ${animations[i].positions[j].arr[i  + 1 ].y}px)`
                     }  
-                }, i * 300)
+                }, i * 1000)
                 break
                 
             default:

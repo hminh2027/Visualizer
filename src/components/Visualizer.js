@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { mergeSort } from '../animations/mergeSort'
+import { animationsHandler } from '../animations'
+import { getBubbleSortAnimations, getMergeSortAnimations } from '../animations/getAnimations'
+import { newArray } from '../helpers/util'
 import { store } from '../store/store'
 
 import styles from './Visualizer.module.css'
@@ -13,17 +15,16 @@ const Visualizer = () => {
 
     }, [context.length, dispatch])
 
-    const newArray = (length) => {
-        let tempArray = []
-        for (let i = 0; i < length; i++) 
-            tempArray.push(generateRandom(10, 300))
-        
-        return tempArray
+    const mergeSort = array => {
+        const animations = getMergeSortAnimations(array)
+        animationsHandler(animations)
     }
 
-    const generateRandom = (min, max) => {
-        return Math.floor(Math.random() * (max - min + 1) + min)
+    const bubbleSort = array => {
+        const animations = getBubbleSortAnimations(array)
+        animationsHandler(animations)
     }
+    
 
     return (
         <div className={styles.container}>
@@ -32,7 +33,9 @@ const Visualizer = () => {
                     {value}
                 </div>
             ))}
-            <button onClick={()=>mergeSort(context.state.array)}>click me</button>
+            <button onClick={()=>mergeSort(context.state.array)}>merge sort</button>
+            <button onClick={()=>bubbleSort(context.state.array)}>bubble sort</button>
+
         </div>
         
     )

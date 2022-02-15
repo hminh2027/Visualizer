@@ -1,4 +1,4 @@
-import { changeColor, addToQueue, addToArray } from "../helpers/addAnimation"
+import { changeColor, addToQueue, addToArray } from "../animations//animations"
 
 export const mergeSort = (array, start, end, animations, positions) => {
     if (start === end) return
@@ -17,7 +17,6 @@ export const mergeSort = (array, start, end, animations, positions) => {
     while (i <= middle && j <= end) {
         // Change color
         //changeColor(animations, positions, [i, j], 'black')
-        
 
         if (array[i] <= array[j]) {
             // Drop down
