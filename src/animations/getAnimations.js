@@ -7,7 +7,7 @@ export const getMergeSortAnimations = (array) => {
     const positions = getInitialPositions()
 
     if (array.length <= 1) return array
-    mergeSort(array, 0, array.length - 1, animations, positions)
+    mergeSort(array.slice(), 0, array.length - 1, animations, positions)
     return animations
 }
 
@@ -16,7 +16,7 @@ export const getBubbleSortAnimations = (array) => {
     const positions = getInitialPositions()
 
     if (array.length <= 1) return array
-    bubbleSort(array, animations, positions)
+    bubbleSort(array.slice(), animations, positions)
     return animations
 }
 

@@ -2,13 +2,16 @@ import { swapPosition } from "../animations/animations"
 import { swap } from "../helpers/util"
 
 export const bubbleSort = (array, animations, positions) => {
-    for (let i = 0; i < array.length; i++) {
-        for (let j = i + 1; j <array.length; j++) {
-            if(array[i] > array[j]) {
-                swapPosition(animations, positions, [array[i], array[j]], [i, j])
-                swap(array, i, j)
+    // Use auxiliary array for sorting, and (main) array for indexing
+    const auxiliaryArray = array.slice()
+    for (let i = 0; i < auxiliaryArray.length; i++) {
+        for (let j = i + 1; j <auxiliaryArray.length; j++) {
+            if(auxiliaryArray[i] > auxiliaryArray[j]) {
+                // Swap animation
+                swapPosition(animations, positions, [auxiliaryArray[i], auxiliaryArray[j]], [array.indexOf(auxiliaryArray[i]), array.indexOf(auxiliaryArray[j])])
+                // Swap in auxiliary array
+                swap(auxiliaryArray, i, j)
             }
         }
     }
-    console.log(array)
 }

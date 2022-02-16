@@ -11,33 +11,46 @@ const SortButton = () => {
     const { dispatch } = context
 
     const [timeouts, setTimeouts] = useState([])
+    const [animationsS, setAnimationsS] = useState()
 
-    const mergeSort = array => {
-        const animations = getMergeSortAnimations(array)
-        const timeouts = animationsHandler(animations)
+    const mergeSort = (array, index) => {
+        let animations
+        if (!index || index == 0) {
+            animations = getMergeSortAnimations(array)
+            setAnimationsS(animations)
+        }
+        else animations = animationsS
+        const timeouts = animationsHandler(animations, index, dispatch)
         setTimeouts(timeouts)
-
     }
 
-    const bubbleSort = array => {
-        const animations = getBubbleSortAnimations(array)
-        const timeouts = animationsHandler(animations)
+    const bubbleSort = (array, index) => {
+        let animations
+        if (!index || index == 0) {
+            animations = getBubbleSortAnimations(array)
+            setAnimationsS(animations)
+        }
+        else animations = animationsS
+        const timeouts = animationsHandler(animations, index, dispatch)
         setTimeouts(timeouts)
     }
 
     const sortingAlgorithms = [bubbleSort,  mergeSort]
 
     const sortingHandler = index => {
-        sortingAlgorithms[index](context.state.array)
+        sortingAlgorithms[index](context.state.array, context.state.lastAnimationIndex)
     }
 
     const stopHandler = () => {
-        dispatch({ type: 'SET_IS_SORTING', payload: false })
+        //dispatch({ type: 'SET_IS_SORTING', payload: false })
         for (let i = 0; i < timeouts.length; i++) {
             clearTimeout(timeouts[i])
         }
         console.log('stop clicked')
+        console.log(context.state.lastAnimationIndex)
     }
+
+
 
     return (
         <>

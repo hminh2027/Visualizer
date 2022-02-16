@@ -3,8 +3,12 @@ import React, { useReducer } from 'react'
 const initialState = {
     array: [],
     length: 100,
-    speed: 300
+    speed: 300,
+    sortingTab: 0,
+    isSorting: true,
+    lastAnimationIndex: 0
 }
+
 const store = React.createContext(initialState)
 const { Provider } = store
 
@@ -20,6 +24,15 @@ const StateProvider = ( { children } ) => {
 
             case 'UPDATE_LENGTH':
                 return {...state, length: action.payload}
+
+            case 'SET_SORTING_TAB':
+                return {...state, sortingTab: action.payload}
+                
+            case 'SET_IS_SORTING':
+                return {...state, isSorting: action.payload}
+
+            case 'SET_LAST_ANIMATION_INDEX':
+                return {...state, lastAnimationIndex: action.payload}
 
             default:
                 throw new Error()

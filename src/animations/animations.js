@@ -7,8 +7,6 @@ export const changeColor = (animations, positions, index, color) => {
 export const swapPosition = (animations, positions, value, index) => {
     const [firstValue, secondValue] = value
     const [firstIndex, secondIndex] = index
-    console.log(index)
-    console.log(value)
 
     for (let i = 0; i < positions.length; i++) {
         const lastIndex = positions[i].arr.length - 1
@@ -32,8 +30,7 @@ export const swapPosition = (animations, positions, value, index) => {
             y: positions[i].arr[lastIndex].y
         })
     }
-    addAnimation(animations, positions, `Swap columns have value: ${firstValue}, ${secondValue}`, 'TRANFORM')
-
+    addAnimation(animations, positions, `Swap columns have value: ${firstValue}, ${secondValue}`, 'TRANFORM', index)
 }
 
 export const addToArray = (animations, positions, value) => {
@@ -87,5 +84,4 @@ export const addToQueue = (animations, positions, value, toIndex) => {
         })
     }
     addAnimation(animations, positions, `Add column have value: ${value} to queue`, 'TRANFORM')
-
 }
