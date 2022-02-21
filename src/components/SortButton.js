@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 
 import { animationsHandler } from '../animations'
-import { getBubbleSortAnimations, getMergeSortAnimations } from '../animations/getAnimations'
+import { getBubbleSortAnimations, getMergeSortAnimations, getSelectionSortAnimations } from '../animations/getAnimations'
 import { store } from '../store/store'
 
 import styles from './SortButton.module.css'
@@ -35,7 +35,18 @@ const SortButton = () => {
         setTimeouts(timeouts)
     }
 
-    const sortingAlgorithms = [bubbleSort,  mergeSort]
+    const selectionSort = (array, index) => {
+        let animations
+        if (!index || index == 0) {
+            animations = getSelectionSortAnimations(array)
+            setAnimationsS(animations)
+        }
+        else animations = animationsS
+        const timeouts = animationsHandler(animations, index, dispatch)
+        setTimeouts(timeouts)
+    }
+
+    const sortingAlgorithms = [bubbleSort,  mergeSort, selectionSort]
 
     const sortingHandler = index => {
         sortingAlgorithms[index](context.state.array, context.state.lastAnimationIndex)

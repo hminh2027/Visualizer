@@ -3,7 +3,7 @@ export const generateRandom = (min, max) => Math.floor(Math.random() * (max - mi
 export const generateUniqueArray = (length) => {
     let tempArray = []
     for (let i = 0; i < length; i++) {
-        const number = generateRandom(10, 300)
+        const number = generateRandom(1, 50)
         if(tempArray.indexOf(number) === -1) tempArray.push(number)
     }
     

@@ -26,7 +26,7 @@ export const animationsHandler = (animations, index, dispatch) => {
                         arrayBars[j].style.transform = `translate(${animations[i].positions[j].arr[i + 1].x - animations[i].positions[j].arr[0].x}px, ${animations[i].positions[j].arr[i  + 1 ].y}px)`
                     }
                     dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i == animations.length - 1 ? 0 : i + 1 })
-                }, i * 500))
+                }, i * 1000))
                 break
                 
             default:

@@ -13,16 +13,28 @@
 .middle_bar {
     width: 80%;
     height: 100%;
+    background-color: white;
     flex-grow: 1;
     margin: auto;
-    background-color: white;
+}
+
+.bars_wrapper {
+    width: 80%;
+    height: 50%;
+    margin: auto;
     display: flex;
-    align-items: flex-end;
+    align-items:flex-end;
     justify-content: space-around;
 }
 
 .bar {
-    width: 5px;
+    width: 4rem;
     background-color: rgb(224, 111, 5);
+    text-align: center;
     transition: .2s;
+    display: inline-block;
 }
+span {
+    display: inline-block;
+    vertical-align: middle;
+  }

@@ -9,7 +9,7 @@ const Tabs = () => {
     const context = useContext(store)
     const { dispatch } = context
 
-    const menuList = ['Bubble Sort',  'Merge Sort']
+    const menuList = ['Bubble Sort',  'Merge Sort', 'Selection Sort']
 
     const setSortingTab = index => {
         dispatch({ type: 'SET_SORTING_TAB', payload:  index})
