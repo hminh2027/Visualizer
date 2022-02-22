@@ -12,7 +12,7 @@ const Tabs = () => {
 
     const setSortingTab = index => {
         dispatch({ type: 'SET_SORTING_TAB', payload:  index})
-        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(10) })
+        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
         resetColumns()
     }
 

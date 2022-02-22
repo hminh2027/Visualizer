@@ -1,4 +1,4 @@
-export const animationsHandler = (animations, index, dispatch) => {
+export const animationsHandler = (animations, index, dispatch, speed) => {
     const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
     const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
 
@@ -17,7 +17,7 @@ export const animationsHandler = (animations, index, dispatch) => {
                 setTimeout(() => {
                     arrayBars[one].style.backgroundColor = animations[i].color
                     arrayBars[two].style.backgroundColor = animations[i].color
-                }, i * 100)
+                }, i * speed)
                 break
             
             case 'TRANFORM':
@@ -31,7 +31,7 @@ export const animationsHandler = (animations, index, dispatch) => {
                         )`
                     }
                     dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i == animations.length - 1 ? 0 : i + 1 })
-                }, i * 500))
+                }, i * speed))
                 break
                 
             default:

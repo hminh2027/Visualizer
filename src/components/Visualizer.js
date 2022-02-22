@@ -23,7 +23,7 @@ const Visualizer = () => {
                 <div className={styles.bars_wrapper}>
                     {context.state.length > 0 && context.state.array.map((value, index) => (
                         <div style={{height: `${value}%`, transform: `translate(0, -${barsWrapper.offsetHeight / 2}px)`}} className={styles.bar} key={index}>
-                            <span>{value}</span>
+                            {value}
                         </div>
                     ))}
                 </div>          

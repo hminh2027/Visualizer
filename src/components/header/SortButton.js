@@ -20,7 +20,7 @@ const SortButton = () => {
             setAnimationsS(animations)
         }
         else animations = animationsS
-        const timeouts = animationsHandler(animations, index, dispatch)
+        const timeouts = animationsHandler(animations, index, dispatch, context.state.speed)
         setTimeouts(timeouts)
     }
 
@@ -31,7 +31,7 @@ const SortButton = () => {
             setAnimationsS(animations)
         }
         else animations = animationsS
-        const timeouts = animationsHandler(animations, index, dispatch)
+        const timeouts = animationsHandler(animations, index, dispatch, context.state.speed)
         setTimeouts(timeouts)
     }
 
@@ -42,7 +42,7 @@ const SortButton = () => {
             setAnimationsS(animations)
         }
         else animations = animationsS
-        const timeouts = animationsHandler(animations, index, dispatch)
+        const timeouts = animationsHandler(animations, index, dispatch, context.state.speed)
         setTimeouts(timeouts)
     }
 
@@ -50,6 +50,8 @@ const SortButton = () => {
 
     const sortingHandler = index => {
         sortingAlgorithms[index](context.state.array, context.state.lastAnimationIndex)
+        dispatch({ type: 'SET_IS_SORTING', payload: true })
+
     }
 
     return (

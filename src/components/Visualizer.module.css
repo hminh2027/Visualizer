@@ -32,9 +32,10 @@
     background-color: rgb(224, 111, 5);
     text-align: center;
     transition: .2s;
-    display: inline-block;
-}
-span {
-    display: inline-block;
-    vertical-align: middle;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }

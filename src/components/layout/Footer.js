@@ -1,11 +1,16 @@
 import React from 'react'
+import SizeBar from '../footer/SizeSlider'
+import SpeedBar from '../footer/SpeedSlider'
 
 import styles from './Footer.module.css'
 
 const Footer = () => {
     return (
         <div className={styles.container}>
-            Footer
+            <div className={styles.wrapper}>
+                <SizeBar/>
+                <SpeedBar/>
+            </div>         
         </div>
     )
 }

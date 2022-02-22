@@ -25,17 +25,21 @@ const CreateButton = () => {
     }
 
     const randomButtonHandler = () => {
-        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(10) })
+        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
     }
+
     const arrayStringHandler = (arrayString) => {
         if(!arrayString) return
         let error, array = []
+
         const tempArray = arrayString.split(',').map(n=>n.trim())
+        
         tempArray.map(n=>{
             if(isNaN(n)) error = `${n}: Value is not a valid number`         
             if (n < 1 || n > 49) error = `${n}: Value must be between 1 and 49 (Not exclusive)`
             array.push(+n)
         })
+
         return {array, error}
     }
     return (

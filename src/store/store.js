@@ -2,10 +2,10 @@ import React, { useReducer } from 'react'
 
 const initialState = {
     array: [],
-    length: 100,
+    length: 10,
     speed: 300,
     sortingTab: 0,
-    isSorting: true,
+    isSorting: false,
     lastAnimationIndex: 0
 }
 
