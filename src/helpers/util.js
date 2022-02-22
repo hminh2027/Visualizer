@@ -3,8 +3,9 @@ export const generateRandom = (min, max) => Math.floor(Math.random() * (max - mi
 export const generateUniqueArray = (length) => {
     let tempArray = []
     for (let i = 0; i < length; i++) {
-        const number = generateRandom(1, 50)
-        if(tempArray.indexOf(number) === -1) tempArray.push(number)
+        let number = generateRandom(1, 49)
+        while (tempArray.indexOf(number) !== -1) number = generateRandom(1, 49)
+        tempArray.push(number)
     }
     
     return tempArray
@@ -18,7 +19,8 @@ export const swap = (arr, a, b) => {
 
 export const resetColumns = () => {
     const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
-    for (let i = 0; i < arrayBars.length; i++) {
-        arrayBars[i].style.transform = ''
-    }
+    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+
+    for (let i = 0; i < arrayBars.length; i++) 
+        arrayBars[i].style.transform = `translate(0, -${barsWrapper.offsetHeight / 2}px)`
 }

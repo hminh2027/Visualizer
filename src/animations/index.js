@@ -1,5 +1,7 @@
 export const animationsHandler = (animations, index, dispatch) => {
     const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
+    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+
     const timeouts = []
     let idx = index || 0
 
@@ -19,14 +21,17 @@ export const animationsHandler = (animations, index, dispatch) => {
                 break
             
             case 'TRANFORM':
+                
                 timeouts.push(
                 setTimeout(() => {
                     for (let j = 0; j < animations[i].positions.length; j++) {
-                        console.log('bar '+ j + ' set value: ' + (animations[i].positions[j].arr[i + 1].x - animations[i].positions[j].arr[0].x))
-                        arrayBars[j].style.transform = `translate(${animations[i].positions[j].arr[i + 1].x - animations[i].positions[j].arr[0].x}px, ${animations[i].positions[j].arr[i  + 1 ].y}px)`
+                        arrayBars[j].style.transform = `translate(
+                            ${animations[i].positions[j].arr[i + 1].x - animations[i].positions[j].arr[0].x}px,
+                            ${animations[i].positions[j].arr[i  + 1 ].y > 0 ? -10 : (barsWrapper.offsetHeight / -2)}px
+                        )`
                     }
                     dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i == animations.length - 1 ? 0 : i + 1 })
-                }, i * 1000))
+                }, i * 500))
                 break
                 
             default:

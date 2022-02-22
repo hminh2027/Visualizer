@@ -8,8 +8,10 @@ const Visualizer = () => {
     const context = useContext(store)
     const { dispatch } = context
 
+    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+
     useEffect(()=>{
-        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(20) })
+        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(10) })
 
     }, [context.length, dispatch])
     
@@ -20,7 +22,7 @@ const Visualizer = () => {
             <div className={styles.middle_bar}>
                 <div className={styles.bars_wrapper}>
                     {context.state.length > 0 && context.state.array.map((value, index) => (
-                        <div style={{height: `${value*2}%`}} className={styles.bar} key={index}>
+                        <div style={{height: `${value}%`, transform: `translate(0, -${barsWrapper.offsetHeight / 2}px)`}} className={styles.bar} key={index}>
                             <span>{value}</span>
                         </div>
                     ))}

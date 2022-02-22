@@ -20,6 +20,11 @@ code {
   padding: 0;
 }
 
+button, input {
+  outline: none;
+  border: none;
+}
+
 body, html, #root {
   width: 100%;
   height: 100%;

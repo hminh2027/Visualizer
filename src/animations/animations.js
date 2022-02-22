@@ -66,15 +66,15 @@ export const addToQueue = (animations, positions, value, toIndex) => {
 
             if (curIndex < toIndex) positions[i].arr.push({
                 x: positions[i].arr[lastIndex].x + diffDistance,
-                y: 100
+                y: 1
             })
             else if (curIndex > toIndex) positions[i].arr.push({
                 x: positions[i].arr[lastIndex].x - diffDistance,
-                y: 100
+                y: 1
             })
             else positions[i].arr.push({
                 x: positions[i].arr[lastIndex].x,
-                y: 100
+                y: 1
             })
         }
         

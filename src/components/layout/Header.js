@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import SortButton from '../SortButton'
-import Tabs from '../Tabs'
+import CreateButton from '../header/CreateButton'
+import SortButton from '../header/SortButton'
+import Tabs from '../header/Tabs'
 
 import styles from './Header.module.css'
 
@@ -9,9 +10,11 @@ const Header = () => {
 
     return (
         <div className={styles.container}>
-            Header
-            <Tabs/>
-            <SortButton/>
+            <div className={styles.wrapper}>
+                <CreateButton/>
+                <Tabs/>
+                <SortButton/>
+            </div>
         </div>
     )
 }

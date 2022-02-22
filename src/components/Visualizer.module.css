@@ -6,7 +6,7 @@
 
 .right_bar, .left_bar {
     background-color: black;
-    width: 40px;
+    width: 3%;
     height: 100%;
 }
 
@@ -20,7 +20,7 @@
 
 .bars_wrapper {
     width: 80%;
-    height: 50%;
+    height: 90%;
     margin: auto;
     display: flex;
     align-items:flex-end;
@@ -37,4 +37,4 @@
 span {
     display: inline-block;
     vertical-align: middle;
-  }
+}

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 
-import { animationsHandler } from '../animations'
-import { getBubbleSortAnimations, getMergeSortAnimations, getSelectionSortAnimations } from '../animations/getAnimations'
-import { store } from '../store/store'
+import { animationsHandler } from '../../animations'
+import { getBubbleSortAnimations, getMergeSortAnimations, getSelectionSortAnimations } from '../../animations/getAnimations'
+import { store } from '../../store/store'
 
 import styles from './SortButton.module.css'
 
@@ -52,22 +52,10 @@ const SortButton = () => {
         sortingAlgorithms[index](context.state.array, context.state.lastAnimationIndex)
     }
 
-    const stopHandler = () => {
-        //dispatch({ type: 'SET_IS_SORTING', payload: false })
-        for (let i = 0; i < timeouts.length; i++) {
-            clearTimeout(timeouts[i])
-        }
-        console.log('stop clicked')
-        console.log(context.state.lastAnimationIndex)
-    }
-
-
-
     return (
-        <>
-        <button onClick={()=>sortingHandler(context.state.sortingTab)}>Sort</button>
-        <button onClick={stopHandler}>Stop</button>
-        </>
+        <div className={styles.container}>
+            <button className={styles.sort_btn} onClick={()=>sortingHandler(context.state.sortingTab)}>Sort</button>
+        </div>
     )
 }
 

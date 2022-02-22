@@ -10,7 +10,7 @@ return (
   <StateProvider>
     <Header/>
     <Visualizer/>
-    {/* <Footer/> */}
+    <Footer/>
   </StateProvider>
 )}
 
