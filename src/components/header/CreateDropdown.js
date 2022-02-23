@@ -4,9 +4,9 @@ import {AiFillCaretDown} from 'react-icons/ai'
 import { generateUniqueArray } from '../../helpers/util'
 import { store } from '../../store/store'
 
-import styles from './CreateButton.module.css'
+import styles from './CreateDropdown.module.css'
 
-const CreateButton = () => {
+const CreateDropdown = () => {
     const context = useContext(store)
     const { dispatch } = context
 
@@ -25,6 +25,7 @@ const CreateButton = () => {
     }
 
     const randomButtonHandler = () => {
+        dispatch({ type: 'UPDATE_THEME', payload: 'blue' })
         dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
     }
 
@@ -65,4 +66,4 @@ const CreateButton = () => {
     )
 }
 
-export default CreateButton
+export default CreateDropdown

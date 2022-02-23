@@ -3,10 +3,11 @@ import React, { useReducer } from 'react'
 const initialState = {
     array: [],
     length: 10,
-    speed: 300,
+    speed: 1000,
     sortingTab: 0,
     isSorting: false,
-    lastAnimationIndex: 0
+    lastAnimationIndex: 0,
+    theme: 'blacknwhite'
 }
 
 const store = React.createContext(initialState)
@@ -34,6 +35,9 @@ const StateProvider = ( { children } ) => {
             case 'SET_LAST_ANIMATION_INDEX':
                 return {...state, lastAnimationIndex: action.payload}
 
+            case 'UPDATE_THEME':
+                return {...state, theme: action.payload}
+    
             default:
                 throw new Error()
         }

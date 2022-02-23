@@ -4,8 +4,8 @@
 
 .sort_btn {
     text-decoration: underline;
-    background-color: black;
-    color: white;
+    background-color: transparent;
+    color: var(--text-primary);
     width: 100%;
     height: 100%;
     font-weight: bold;
@@ -19,5 +19,5 @@
 }
 
 .sort_btn:hover {
-    background-color: rgb(39, 39, 39);
+    background-color: var(--hover);
 }

@@ -1,0 +1,12 @@
+:root {
+    --border-bg: #AB1818;
+    --main-bg: #F9F7E7;
+    --hover: #800B1A;
+    --bars: #287548;
+    --slider-bg: #C58C35;
+    --slider: #E9BB4F;
+    --text-active: white;
+    --text-primary: #E9BB4F;
+    --text-darker: #F9F7E7;
+    --text-bar: #E9BB4F;
+}

@@ -8,7 +8,7 @@ const SpeedSlider = () => {
     const { dispatch } = context
 
     const changeSizeHandler = e => {
-        dispatch({ type: 'UPDATE_SPEED', payload: 1 / e.target.value * 2.5 * 1000 })
+        dispatch({ type: 'UPDATE_SPEED', payload: (1 / (e.target.value * 2.5)) * 5000 })
     }
 
     return (

@@ -1,0 +1,12 @@
+:root {
+    --border-bg: black;
+    --main-bg: white;
+    --hover: rgb(39, 39, 39);
+    --bars: black;
+    --slider-bg: rgb(168, 168, 168);
+    --slider: white;
+    --text-active: white;
+    --text-primary: white;
+    --text-darker: rgb(168, 168, 168);
+    --text-bar: rgb(231, 231, 231);
+}

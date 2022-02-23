@@ -2,10 +2,11 @@
     height: 85%;
     width: 100%;
     display: flex;
+    background-color: var(--main-bg);
 }
 
 .right_bar, .left_bar {
-    background-color: black;
+    background-color: var(--border-bg);
     width: 3%;
     height: 100%;
 }
@@ -13,7 +14,6 @@
 .middle_bar {
     width: 80%;
     height: 100%;
-    background-color: white;
     flex-grow: 1;
     margin: auto;
 }
@@ -29,7 +29,7 @@
 
 .bar {
     width: 4rem;
-    background-color: rgb(224, 111, 5);
+    background-color: var(--bars);
     text-align: center;
     transition: .2s;
     border-top-left-radius: 4px;
@@ -38,4 +38,5 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    color: var(--text-bar)
 }

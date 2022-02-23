@@ -8,7 +8,7 @@
     height: 100%;
     width: 80%;
     margin: auto;
-    color: darkgray;
+    color: var(--text-darker);
 }
 
 .tab {
@@ -20,12 +20,14 @@
     font-weight: 700;
     font-size: 1.4rem;
     letter-spacing: 1px;
+    color: var(--text-darker)
 }
 
 .tab:hover {
-    background-color:rgb(39, 39, 39);
+    background-color: var(--hover);
+    color: var(--text-active)
 }
 
 .active {
-    color: white;
+    color: var(--text-active);
 }
