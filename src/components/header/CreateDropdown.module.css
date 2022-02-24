@@ -20,7 +20,7 @@
 
 .dropdown_content {
     position: absolute;
-    top: 102%;
+    top: 100%;
     left: 0;
     width: 100%;;
     background-color:var(--border-bg);
@@ -28,7 +28,8 @@
     opacity: 0;
     visibility: hidden;
     z-index: 1;
-    /* max-height: 0; */
+    border: 2px solid var(--main-bg);
+    box-sizing: border-box;
 }
 
 .dropdown_item {

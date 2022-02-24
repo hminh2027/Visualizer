@@ -6,8 +6,7 @@ const initialState = {
     speed: 1000,
     sortingTab: 0,
     isSorting: false,
-    lastAnimationIndex: 0,
-    theme: 'blacknwhite'
+    lastAnimationIndex: 0
 }
 
 const store = React.createContext(initialState)
@@ -34,9 +33,6 @@ const StateProvider = ( { children } ) => {
 
             case 'SET_LAST_ANIMATION_INDEX':
                 return {...state, lastAnimationIndex: action.payload}
-
-            case 'UPDATE_THEME':
-                return {...state, theme: action.payload}
     
             default:
                 throw new Error()

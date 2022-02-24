@@ -3,8 +3,8 @@ export const generateRandom = (min, max) => Math.floor(Math.random() * (max - mi
 export const generateUniqueArray = (length) => {
     let tempArray = []
     for (let i = 0; i < length; i++) {
-        let number = generateRandom(1, 49)
-        while (tempArray.indexOf(number) !== -1) number = generateRandom(1, 49)
+        let number = generateRandom(5, 49)
+        while (tempArray.indexOf(number) !== -1) number = generateRandom(5, 49)
         tempArray.push(number)
     }
     

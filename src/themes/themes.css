@@ -1,0 +1,51 @@
+.blacknwhite-theme {
+    --border-bg: black;
+    --main-bg: white;
+    --hover: rgb(39, 39, 39);
+    --bars: black;
+    --slider-bg: rgb(168, 168, 168);
+    --slider: white;
+    --text-active: white;
+    --text-primary: white;
+    --text-darker: rgb(168, 168, 168);
+    --text-bar: rgb(231, 231, 231);
+}
+
+.christmas-theme {
+    --border-bg: #AB1818;
+    --main-bg: #d3cc9a;
+    --hover: #800B1A;
+    --bars: #287548;
+    --slider-bg: #C58C35;
+    --slider: #E9BB4F;
+    --text-active: white;
+    --text-primary: #E9BB4F;
+    --text-darker: #E9BB4F;
+    --text-bar: #e2ae33;
+}
+
+.sweet-theme {
+    --border-bg: #F848B5;
+    --main-bg: #FFDEF6;
+    --hover: #FFA5E3;
+    --bars: #AA8DF6;
+    --slider-bg: #FFA5E3;
+    --slider: #FFDEF6;
+    --text-active: white;
+    --text-primary: white;
+    --text-darker: #FFDEF6;
+    --text-bar: white;
+}
+
+.darkmode-theme {
+    --border-bg: #152642;
+    --main-bg: #506680;
+    --hover: #2F4562;
+    --bars: #152642;
+    --slider-bg: rgb(168, 168, 168);
+    --slider: white;
+    --text-active: white;
+    --text-primary: white;
+    --text-darker: rgb(153, 153, 153);
+    --text-bar: white;
+}

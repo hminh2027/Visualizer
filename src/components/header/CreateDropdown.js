@@ -25,7 +25,6 @@ const CreateDropdown = () => {
     }
 
     const randomButtonHandler = () => {
-        dispatch({ type: 'UPDATE_THEME', payload: 'blue' })
         dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
     }
 

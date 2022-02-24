@@ -3,18 +3,18 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 
 import { StateProvider } from './store/store'
-import ThemeProvider from './helpers/ThemeProvider'
 
-// import './variables.css'
+import './themes/themes.css'
+
 function App() {
     
 return (
     <StateProvider>
-        <ThemeProvider>
+        <div id='app' style={{width: '100%', height: '100%'}} className='blacknwhite-theme'>
             <Header/>
             <Visualizer/>
             <Footer/>
-        </ThemeProvider>       
+        </div>
     </StateProvider>
 )}
 
