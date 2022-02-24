@@ -1,3 +1,6 @@
+import { useContext } from "react"
+import { store } from "../store/store"
+
 export const generateRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
 export const generateUniqueArray = (length) => {

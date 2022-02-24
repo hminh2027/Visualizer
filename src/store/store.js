@@ -6,7 +6,8 @@ const initialState = {
     speed: 1000,
     sortingTab: 0,
     isSorting: false,
-    lastAnimationIndex: 0
+    lastAnimationIndex: -1,
+    animations: []
 }
 
 const store = React.createContext(initialState)
@@ -33,6 +34,9 @@ const StateProvider = ( { children } ) => {
 
             case 'SET_LAST_ANIMATION_INDEX':
                 return {...state, lastAnimationIndex: action.payload}
+
+            case 'SET_ANIMATIONS':
+                return {...state, animations: action.payload} 
     
             default:
                 throw new Error()

@@ -10,6 +10,7 @@
     background-color: var(--border-bg);
     width: 3%;
     height: 100%;
+    position: relative;
 }
 
 .middle_bar {

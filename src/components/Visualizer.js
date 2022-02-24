@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { generateUniqueArray } from '../helpers/util'
 import { store } from '../store/store'
+import Rightbar from './sidebar/Rightbar'
 
 import styles from './Visualizer.module.css'
 
@@ -28,7 +29,7 @@ const Visualizer = () => {
                     ))}
                 </div>          
             </div>
-            <div className={styles.right_bar}></div>
+            <div className={styles.right_bar}><Rightbar /></div>
         </div>
         
     )

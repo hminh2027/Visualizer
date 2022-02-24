@@ -8,20 +8,28 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
     console.log(animations)
     console.log(idx)
 
-    for (let i = idx; i < animations.length; i++) {
-        console.log(animations[i].description)
-        switch(animations[i].action) {
-            case 'COLOR':
-                const [one, two] = animations[i].index
-                
+    for (let i = idx; i <= animations.length; i++) {
+        // console.log(i)
+        // console.log(animations[i].description)
+        if(i === animations.length) {
+            timeouts.push(
                 setTimeout(() => {
-                    arrayBars[one].style.backgroundColor = animations[i].color
-                    arrayBars[two].style.backgroundColor = animations[i].color
-                }, i * speed)
-                break
+                    console.log('reset')
+                    dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: -1 })
+                }, i * speed))
+            break
+        }
+        switch(animations[i].action) {
+            // case 'COLOR':
+            //     const [one, two] = animations[i].index
+                
+            //     setTimeout(() => {
+            //         arrayBars[one].style.backgroundColor = animations[i].color
+            //         arrayBars[two].style.backgroundColor = animations[i].color
+            //     }, i * speed)
+            //     break
             
             case 'TRANFORM':
-                
                 timeouts.push(
                 setTimeout(() => {
                     for (let j = 0; j < animations[i].positions.length; j++) {
@@ -30,7 +38,7 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
                             ${animations[i].positions[j].arr[i  + 1 ].y > 0 ? -10 : (barsWrapper.offsetHeight / -2)}px
                         )`
                     }
-                    dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i == animations.length - 1 ? 0 : i + 1 })
+                    dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i })
                 }, i * speed))
                 break
                 
