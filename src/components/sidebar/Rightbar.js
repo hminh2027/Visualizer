@@ -10,9 +10,7 @@ const Rightbar = () => {
 
     useEffect(()=>{
         const index = context.state.lastAnimationIndex
-
         setAnimation(context.state.animations[index])
-        console.log(context.state.animations[index])
 
     }, [context.state.lastAnimationIndex])
 

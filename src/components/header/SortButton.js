@@ -10,41 +10,37 @@ const SortButton = () => {
     const context = useContext(store)
     const { dispatch } = context
 
-    const [timeouts, setTimeouts] = useState([])
-
     const mergeSort = (array, index) => {
         let animations
-        if (!index || index == 0) {
+        if (!index || index === 1) {
             animations = getMergeSortAnimations(array)
             dispatch({ type: 'SET_ANIMATIONS', payload: animations })
         }
         else animations = context.state.animations
-        const timeouts = animationsHandler(animations, index, dispatch, context.state.speed)
-        setTimeouts(timeouts)
+        const timers = animationsHandler(animations, index, dispatch, context.state.speed)
+        dispatch({ type: 'SET_TIMERS', payload: timers })
     }
 
     const bubbleSort = (array, index) => {
         let animations
-        if (!index || index == 0) {
+        if (!index || index === 1) {
             animations = getBubbleSortAnimations(array)
             dispatch({ type: 'SET_ANIMATIONS', payload: animations })
         }
         else {animations = context.state.animations}
-        const timeouts = animationsHandler(animations, index, dispatch, context.state.speed)
-        setTimeouts(timeouts)
+        const timers = animationsHandler(animations, index, dispatch, context.state.speed)
+        dispatch({ type: 'SET_TIMERS', payload: timers })
     }
 
     const selectionSort = (array, index) => {
         let animations
-        if (!index || index == 0) {
+        if (!index || index === 1) {
             animations = getSelectionSortAnimations(array)
             dispatch({ type: 'SET_ANIMATIONS', payload: animations })
         }
         else animations = context.state.animations
-        const timeouts = animationsHandler(animations, index, dispatch, context.state.speed)
-        setTimeouts(timeouts).then(()=>{
-            console.log('finished animations')
-        })
+        const timers = animationsHandler(animations, index, dispatch, context.state.speed)
+        dispatch({ type: 'SET_TIMERS', payload: timers })
     }
 
     const sortingAlgorithms = [bubbleSort,  mergeSort, selectionSort]
@@ -64,7 +60,6 @@ const SortButton = () => {
 
     return (
         <div className={styles.container}>
-            <button className={styles.btn} onClick={resetStore}>rs</button>
             <button className={styles.sort_btn} onClick={()=>sortingHandler(context.state.sortingTab)}>Sort</button>
         </div>
     )

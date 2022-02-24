@@ -1,4 +1,5 @@
 import React from 'react'
+import AnimationControls from '../footer/AnimationControls'
 import SizeBar from '../footer/SizeSlider'
 import SpeedBar from '../footer/SpeedSlider'
 
@@ -9,6 +10,7 @@ const Footer = () => {
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 <SizeBar/>
+                <AnimationControls/>
                 <SpeedBar/>
             </div>         
         </div>

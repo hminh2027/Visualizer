@@ -11,9 +11,8 @@ const ThemeItem = ({name, fileName, setActiveItem, active, index}) => {
 
     return (
         <div onClick={setTheme} className={`${styles.container} ${active ? styles.borderActive : ''}`}>
-            <div className={`${styles.name} ${active ? styles.nameColor : ''}`} for={name} >{name}</div>
+            <div className={`${styles.name} ${active ? styles.nameColor : ''}`}>{name}</div>
             <div className={`${styles.circle} ${active ? styles.scaleAnimation : ''}`}></div>
-            {/* <input type="checkbox" id="cb1" /><label for="cb1">Toggle me</label> */}
         </div>
     )
 }
