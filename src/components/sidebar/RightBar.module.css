@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: .3s ease-in-out;
+    transition: .5s ease-in-out;
 }
 
 .icon {
@@ -32,7 +32,7 @@
     color: white;
     border: 2px solid white;
     box-sizing: border-box;
-    transition: .3s ease-in-out;
+    transition: .5s ease-in-out;
     visibility: hidden;
     overflow: hidden;
 }

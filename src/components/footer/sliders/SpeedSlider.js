@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { store } from '../../store/store'
+import { store } from '../../../store/store'
 
 import styles from './SpeedSlider.module.css'
 

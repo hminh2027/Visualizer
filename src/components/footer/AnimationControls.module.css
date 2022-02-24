@@ -1,4 +1,7 @@
 .container {
     display: flex;
-    font-size: 2rem;
+    width: 10%;
+    font-size: 2.5rem;
+    justify-content: space-between;
+    align-items: center;
 }

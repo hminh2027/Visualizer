@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { generateUniqueArray } from '../../helpers/util'
-import { store } from '../../store/store'
+import { generateUniqueArray } from '../../../helpers/util'
+import { store } from '../../../store/store'
 
 import styles from './SizeSlider.module.css'
 

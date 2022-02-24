@@ -14,7 +14,7 @@ const NextButton = () => {
 
     const moveAnimation = () => {
         const i = context.state.lastAnimationIndex + 1
-        console.log(i)
+        
         for (let j = 0; j < context.state.animations[i].positions.length; j++) {
             arrayBars[j].style.transform = `translate(
                 ${context.state.animations[i].positions[j].arr[i].x - context.state.animations[i].positions[j].arr[0].x}px,
