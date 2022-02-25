@@ -19,15 +19,15 @@
     --slider-bg: #C58C35;
     --slider: #E9BB4F;
     --text-active: white;
-    --text-primary: #E9BB4F;
+    --text-primary: white;
     --text-darker: #E9BB4F;
     --text-bar: #e2ae33;
 }
 
 .sweet-theme {
-    --border-bg: #F848B5;
+    --border-bg: #D93C96;
     --main-bg: #FFDEF6;
-    --hover: #FFA5E3;
+    --hover: #F848B5;
     --bars: #AA8DF6;
     --slider-bg: #FFA5E3;
     --slider: #FFDEF6;

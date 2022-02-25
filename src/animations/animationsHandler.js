@@ -17,20 +17,24 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
             break
         }
         switch(animations[i].action) {
-            // case 'COLOR':
-            //     const [one, two] = animations[i].index
-                
-            //     setTimeout(() => {
-            //         arrayBars[one].style.backgroundColor = animations[i].color
-            //         arrayBars[two].style.backgroundColor = animations[i].color
-            //     }, i * speed)
-            //     break
+            case 'COLOR':
+                const idx = animations[i].index
+                const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
+
+                timers.push(
+                setTimeout(() => {
+                    arrayBars[idx].style.backgroundColor = animations[i].color
+                    // arrayBars[two].style.backgroundColor = animations[i].color
+                    dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i })
+                    delay++
+                }, delay * speed))
+                break
             
             case 'TRANFORM':
                 timers.push(
                 setTimeout(() => {
                     transformHandler(i, animations[i].positions)
-                    console.log('done at: '+i)
+                    
                     dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i })
                     delay++
                 }, delay * speed))
@@ -42,6 +46,28 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
         delay++
     }
     return timers
+}
+
+export const animationHandler = (animationIndex, animations, dispatch) => {
+    const i = animationIndex
+    switch(animations[i].action) {
+        case 'COLOR':
+            const idx = animations[i].index
+            const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
+
+                arrayBars[idx].style.backgroundColor = animations[i].color
+                // arrayBars[two].style.backgroundColor = animations[i].color
+                dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i })
+            break
+        
+        case 'TRANFORM':
+                transformHandler(i, animations[i].positions) 
+                dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i })
+            break
+            
+        default:
+            break
+    }
 }
 
 export const transformHandler = (i, positions) => {

@@ -1,4 +1,5 @@
 .container {
     display: flex;
     cursor: pointer;
+    color: var(--text-primary);
 }

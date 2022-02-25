@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import { MdSkipPrevious } from 'react-icons/md'
-import { transformHandler } from '../../../animations/animationsHandler.js'
+import { animationHandler, transformHandler } from '../../../animations/animationsHandler.js'
 import { clearTimeouts } from '../../../helpers/util'
 import { store } from '../../../store/store'
 
@@ -15,8 +15,8 @@ const PrevButton = () => {
         clearTimeouts(context.state.timers, dispatch)
         const i = context.state.lastAnimationIndex - 1
         if(i < 0) return
-        transformHandler(i, context.state.animations[i].positions)
-
+        // transformHandler(i, context.state.animations[i].positions)
+        animationHandler(i, context.state.animations, dispatch)
         dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i})
     }
     return (

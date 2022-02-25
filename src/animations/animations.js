@@ -1,7 +1,7 @@
 import { addAnimation } from "../helpers/addAnimation"
 
 export const changeColor = (animations, positions, index, color) => {
-    addAnimation(animations, positions, `Change color column: ${index} to ${color}`, 'COLOR', index, color)
+    addAnimation(animations, positions, `Comparing : ${index} to ${color}`, 'COLOR', index, color)
 }
 
 export const swapPosition = (animations, positions, value, index) => {
