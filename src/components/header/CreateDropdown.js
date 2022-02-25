@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 
 import {AiFillCaretDown} from 'react-icons/ai'
-import { generateUniqueArray } from '../../helpers/util'
+import { clearTimeouts, generateUniqueArray, resetColumns, resetStore } from '../../helpers/util'
 import { store } from '../../store/store'
 
 import styles from './CreateDropdown.module.css'
@@ -18,13 +18,19 @@ const CreateDropdown = () => {
 
         if (!rs.error) {
             setError('')
+            clearTimeouts(context.state.timers, dispatch)
+            resetColumns()
+            resetStore(dispatch)
             dispatch({ type: 'UPDATE_ARRAY', payload: rs.array })
-            console.log(rs.array)
+            
         }
         else setError(rs.error)
     }
 
     const randomButtonHandler = () => {
+        clearTimeouts(context.state.timers, dispatch)
+        resetColumns()
+        resetStore(dispatch)
         dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
     }
 
@@ -33,10 +39,13 @@ const CreateDropdown = () => {
         let error, array = []
 
         const tempArray = arrayString.split(',').map(n=>n.trim())
+
+        if((new Set(tempArray)).size !== tempArray.length) error = `Values must not be duplicated` 
         
         tempArray.map(n=>{
             if(isNaN(n)) error = `${n}: Value is not a valid number`         
-            if (n < 1 || n > 49) error = `${n}: Value must be between 1 and 49 (Not exclusive)`
+            if(n < 1 || n > 49) error = `${n}: Value must be between 1 and 49 (Not exclusive)`
+            
             array.push(+n)
         })
 

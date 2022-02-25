@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { generateUniqueArray, resetColumns } from '../../helpers/util'
+import { clearTimeouts, generateUniqueArray, resetColumns, resetStore } from '../../helpers/util'
 import { store } from '../../store/store'
 
 import styles from './Tabs.module.css'
@@ -11,9 +11,11 @@ const Tabs = () => {
     const menuList = ['Bubble Sort',  'Merge Sort', 'Selection Sort', 'Insertion Sort', 'Quick Sort', 'Heap Sort', 'Counting Sort']
 
     const setSortingTab = index => {
+        resetColumns()
+        clearTimeouts(context.state.timers, dispatch)
+        resetStore(dispatch)
         dispatch({ type: 'SET_SORTING_TAB', payload:  index})
         dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
-        resetColumns()
     }
 
     return (

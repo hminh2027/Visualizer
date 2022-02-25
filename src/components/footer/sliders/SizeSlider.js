@@ -21,7 +21,7 @@ const SizeSlider = () => {
             max='20'
             defaultValue='10'
             type='range'
-            //disabled={isRunning ? "disabled" : null}  
+            disabled={context.state.isSorting ? "disabled" : null}  
             onChange={changeSizeHandler} 
             className={styles.slider}
             />

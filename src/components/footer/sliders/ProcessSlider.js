@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { transformHandler } from '../../../animations/animationsHandler.js'
 import { store } from '../../../store/store'
 
 import styles from './ProcessSlider.module.css'
@@ -24,19 +25,9 @@ const ProcessSlider = () => {
     }, [context.state.lastAnimationIndex])
 
     const changeAnimationHandler = e => {
-        dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: e.target.value })
-        moveAnimation()
-    }
-
-    const moveAnimation = () => {
-        const i = context.state.lastAnimationIndex
-
-        for (let j = 0; j < context.state.animations[i].positions.length; j++) {
-            arrayBars[j].style.transform = `translate(
-                ${context.state.animations[i].positions[j].arr[i].x - context.state.animations[i].positions[j].arr[0].x}px,
-                ${context.state.animations[i].positions[j].arr[i].y > 0 ? -10 : (barsWrapper.offsetHeight / -2)}px
-            )`
-        }
+        const i = e.target.value
+        transformHandler(i, context.state.animations[i].positions)
+        dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: +e.target.value })
     }
     
     return (
@@ -47,7 +38,7 @@ const ProcessSlider = () => {
             max={range}
             value={value}
             type='range'
-            //disabled={isRunning ? "disabled" : null}  
+            disabled={context.state.isSorting ? "disabled" : null}  
             onChange={changeAnimationHandler} 
             className={styles.slider}
             />

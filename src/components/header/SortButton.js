@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
-import { animationsHandler } from '../../animations'
+import { animationsHandler } from '../../animations/animationsHandler.js'
 import { getBubbleSortAnimations, getMergeSortAnimations, getSelectionSortAnimations } from '../../animations/getAnimations'
 import { store } from '../../store/store'
 
@@ -10,52 +10,22 @@ const SortButton = () => {
     const context = useContext(store)
     const { dispatch } = context
 
-    const mergeSort = (array, index) => {
-        let animations
-        if (!index || index === 1) {
-            animations = getMergeSortAnimations(array)
-            dispatch({ type: 'SET_ANIMATIONS', payload: animations })
-        }
-        else animations = context.state.animations
-        const timers = animationsHandler(animations, index, dispatch, context.state.speed)
-        dispatch({ type: 'SET_TIMERS', payload: timers })
-    }
-
-    const bubbleSort = (array, index) => {
-        let animations
-        if (!index || index === 1) {
-            animations = getBubbleSortAnimations(array)
-            dispatch({ type: 'SET_ANIMATIONS', payload: animations })
-        }
-        else {animations = context.state.animations}
-        const timers = animationsHandler(animations, index, dispatch, context.state.speed)
-        dispatch({ type: 'SET_TIMERS', payload: timers })
-    }
-
-    const selectionSort = (array, index) => {
-        let animations
-        if (!index || index === 1) {
-            animations = getSelectionSortAnimations(array)
-            dispatch({ type: 'SET_ANIMATIONS', payload: animations })
-        }
-        else animations = context.state.animations
-        const timers = animationsHandler(animations, index, dispatch, context.state.speed)
-        dispatch({ type: 'SET_TIMERS', payload: timers })
-    }
-
-    const sortingAlgorithms = [bubbleSort,  mergeSort, selectionSort]
+    const sortingAlgorithms = [getBubbleSortAnimations,  getMergeSortAnimations, getSelectionSortAnimations]
 
     const sortingHandler = index => {
-        sortingAlgorithms[index](context.state.array, context.state.lastAnimationIndex + 1)
-        dispatch({ type: 'SET_IS_SORTING', payload: true })
-
-    }
-
-    const resetStore = () => {
-        // dispatch({ type: 'SET_IS_SORTING', payload: false })
-        // // dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: [] })
-        // dispatch({ type: 'SET_ANIMATIONS', payload: [] })
-
+        if(context.state.isSorting) return
+        // Variables
+        let animations
+        const lastAnimationIndex = context.state.lastAnimationIndex + 1
+        // Check if need to get animations
+        if (lastAnimationIndex === 1) {
+            animations = sortingAlgorithms[index](context.state.array)
+            dispatch({ type: 'SET_ANIMATIONS', payload: animations })
+        }
+        else animations = context.state.animations
+        // Save timers
+        const timers = animationsHandler(animations, lastAnimationIndex, dispatch, context.state.speed)
+        dispatch({ type: 'SET_TIMERS', payload: timers })
     }
 
     return (

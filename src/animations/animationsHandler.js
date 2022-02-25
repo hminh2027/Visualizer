@@ -1,6 +1,7 @@
+
+
 export const animationsHandler = (animations, index, dispatch, speed) => {
-    const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
-    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+    dispatch({ type: 'SET_IS_SORTING', payload: true })
 
     const timers = []
     let idx = index || 1
@@ -28,13 +29,8 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
             case 'TRANFORM':
                 timers.push(
                 setTimeout(() => {
-                    console.log('executing ' + i)
-                    for (let j = 0; j < animations[i].positions.length; j++) {
-                        arrayBars[j].style.transform = `translate(
-                            ${animations[i].positions[j].arr[i].x - animations[i].positions[j].arr[0].x}px,
-                            ${animations[i].positions[j].arr[i].y > 0 ? -10 : (barsWrapper.offsetHeight / -2)}px
-                        )`
-                    }
+                    transformHandler(i, animations[i].positions)
+                    console.log('done at: '+i)
                     dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i })
                     delay++
                 }, delay * speed))
@@ -46,4 +42,16 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
         delay++
     }
     return timers
+}
+
+export const transformHandler = (i, positions) => {
+    const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
+    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+
+    for (let j = 0; j < positions.length; j++) {
+        arrayBars[j].style.transform = `translate(
+            ${positions[j].arr[i].x - positions[j].arr[0].x}px,
+            ${positions[j].arr[i].y > 0 ? -10 : (barsWrapper.offsetHeight / -2)}px
+        )`
+    }
 }

@@ -4,7 +4,7 @@ import { selectionSort } from '../algorithms/selectionSort'
 import { getInitialPositions } from '../helpers/getInitialPositions'
 
 const animationTemplate = {
-    action: '',
+    action: 'TRANSFORM',
     color: '',
     description: 'Initial positions',
     index: [],

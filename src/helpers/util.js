@@ -1,6 +1,3 @@
-import { useContext } from "react"
-import { store } from "../store/store"
-
 export const generateRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
 export const generateUniqueArray = (length) => {
@@ -26,4 +23,16 @@ export const resetColumns = () => {
 
     for (let i = 0; i < arrayBars.length; i++) 
         arrayBars[i].style.transform = `translate(0, -${barsWrapper.offsetHeight / 2}px)`
+}
+
+export const resetStore = (dispatch) => {
+    dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: 0 })
+    dispatch({ type: 'SET_ANIMATIONS', payload: [] })
+}
+
+export const clearTimeouts = (timers, dispatch) => {
+    dispatch({ type: 'SET_IS_SORTING', payload: false })
+
+    for (let i = 0; i < timers.length; i++)
+    clearTimeout(timers[i])
 }

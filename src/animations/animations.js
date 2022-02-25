@@ -30,7 +30,7 @@ export const swapPosition = (animations, positions, value, index) => {
             y: positions[i].arr[lastIndex].y
         })
     }
-    addAnimation(animations, positions, `Swap columns have value: ${firstValue}, ${secondValue}`, 'TRANFORM', index)
+    addAnimation(animations, positions, `Swapping the positions of ${firstValue} and ${secondValue}`, 'TRANFORM', index)
 }
 
 export const addToArray = (animations, positions, value) => {
