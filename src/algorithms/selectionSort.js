@@ -8,6 +8,9 @@ export const selectionSort = (array, animations, positions) => {
         let minIndex = i
         let swapped = false
         for (let j = i + 1; j <auxiliaryArray.length; j++) {
+            // Change color animation
+            // changeColor(animations, positions, array.indexOf(auxiliaryArray[i]), array.indexOf(auxiliaryArray[j]))
+
             if(auxiliaryArray[j] < auxiliaryArray[minIndex]) {
                 minIndex = j
                 swapped = true

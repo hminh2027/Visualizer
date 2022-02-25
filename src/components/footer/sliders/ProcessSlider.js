@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { transformHandler } from '../../../animations/animationsHandler.js'
+import { animationHandler, transformHandler } from '../../../animations/animationsHandler.js'
 import { store } from '../../../store/store'
 
 import styles from './ProcessSlider.module.css'
@@ -26,7 +26,7 @@ const ProcessSlider = () => {
 
     const changeAnimationHandler = e => {
         const i = e.target.value
-        transformHandler(i, context.state.animations[i].positions)
+        animationHandler(i, context.state.animations, dispatch)
         dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: +e.target.value })
     }
     
