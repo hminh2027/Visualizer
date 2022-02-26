@@ -9,18 +9,23 @@ export const selectionSort = (array, animations, positions) => {
         let swapped = false
         for (let j = i + 1; j <auxiliaryArray.length; j++) {
             // Change color animation
-            changeColor(animations, positions, `Comparing ${auxiliaryArray[minIndex]} and ${auxiliaryArray[j]}`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 1)
+            changeColor(animations, positions, `Check if ${auxiliaryArray[j]} is smaller than the current minimum (${auxiliaryArray[minIndex]})`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 1)
             if(auxiliaryArray[j] < auxiliaryArray[minIndex]) {
                 minIndex = j
                 swapped = true
                 // Change color animation
-                changeColor(animations, positions, `Min value now is ${auxiliaryArray[minIndex]}`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 1)
+                changeColor(animations, positions, `New minimum value now is ${auxiliaryArray[minIndex]}`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 1)
             }
         }
-        // Revert color
-        revertColor(animations, positions)
-        // Swap animation
-        if(swapped) swapPosition(animations, positions, [auxiliaryArray[i], auxiliaryArray[minIndex]], [array.indexOf(auxiliaryArray[i]), array.indexOf(auxiliaryArray[minIndex])])
+        
+        if(swapped) {
+            // Revert color
+            revertColor(animations, positions, `Swapping the minimum (${auxiliaryArray[minIndex]}) with the first unsorted element (${auxiliaryArray[i]})`)
+            // Swap animation
+            swapPosition(animations, positions, `Swapping the minimum (${auxiliaryArray[minIndex]}) with the first unsorted element (${auxiliaryArray[i]})`, [auxiliaryArray[i], auxiliaryArray[minIndex]], [array.indexOf(auxiliaryArray[i]), array.indexOf(auxiliaryArray[minIndex])])
+            
+        }
+        else revertColor(animations, positions, `As the minimum is the first element in unsorted array, no need to swap`)
         // Swap in auxiliary array
         swap(auxiliaryArray, i, minIndex)
     }

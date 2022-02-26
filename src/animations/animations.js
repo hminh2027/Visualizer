@@ -16,10 +16,9 @@ export const changeColor = (animations, positions, description, value, colorValu
 
     }
     addAnimation(animations, positions, description)
-    // addAnimation(animations, positions, `Comparing ${value}`)
 }
 
-export const revertColor = (animations, positions) => {
+export const revertColor = (animations, positions, description) => {
     for (let i = 0; i < positions.length; i++) {
         const lastIndex = positions[i].arr.length - 1
 
@@ -30,10 +29,10 @@ export const revertColor = (animations, positions) => {
             y: positions[i].arr[lastIndex].y
         })
     }
-    addAnimation(animations, positions, ``)
+    addAnimation(animations, positions, description)
 }
 
-export const swapPosition = (animations, positions, value, index) => {
+export const swapPosition = (animations, positions, description, value, index) => {
     const [firstValue, secondValue] = value
     const [firstIndex, secondIndex] = index
 
@@ -61,7 +60,7 @@ export const swapPosition = (animations, positions, value, index) => {
 
         positions[i].colors.push(positions[i].colors[lastIndex])
     }
-    addAnimation(animations, positions, `Swapping the positions of ${firstValue} and ${secondValue}`)
+    addAnimation(animations, positions, description)
 }
 
 export const addToArray = (animations, positions, value) => {
