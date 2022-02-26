@@ -1,9 +1,7 @@
-export const addAnimation = (animations, positions, description, action, index) => {
+export const addAnimation = (animations, positions, description) => {
     return animations.push({
         description,
-        positions,
-        action,
-        index
+        positions
     })
 }
 

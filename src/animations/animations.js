@@ -1,8 +1,37 @@
 import { addAnimation } from "../helpers/addAnimation"
 
-// export const changeColor = (animations, positions, index) => {
-//     addAnimation(animations, positions, `Comparing ${index}`, 'COLOR', index)
-// }
+export const changeColor = (animations, positions, description, value, colorValue) => {
+    for (let i = 0; i < positions.length; i++) {
+        const lastIndex = positions[i].arr.length - 1
+
+        if (positions[i].value === value[0] || positions[i].value === value[1]) 
+            positions[i].colors.push(colorValue)       
+        else
+            positions[i].colors.push(0)
+
+        positions[i].arr.push({
+            x: positions[i].arr[lastIndex].x,
+            y: positions[i].arr[lastIndex].y
+        })
+
+    }
+    addAnimation(animations, positions, description)
+    // addAnimation(animations, positions, `Comparing ${value}`)
+}
+
+export const revertColor = (animations, positions) => {
+    for (let i = 0; i < positions.length; i++) {
+        const lastIndex = positions[i].arr.length - 1
+
+        positions[i].colors.push(0)
+
+        positions[i].arr.push({
+            x: positions[i].arr[lastIndex].x,
+            y: positions[i].arr[lastIndex].y
+        })
+    }
+    addAnimation(animations, positions, ``)
+}
 
 export const swapPosition = (animations, positions, value, index) => {
     const [firstValue, secondValue] = value
@@ -29,8 +58,10 @@ export const swapPosition = (animations, positions, value, index) => {
             x: positions[i].arr[lastIndex].x,
             y: positions[i].arr[lastIndex].y
         })
+
+        positions[i].colors.push(positions[i].colors[lastIndex])
     }
-    addAnimation(animations, positions, `Swapping the positions of ${firstValue} and ${secondValue}`, 'TRANFORM', index)
+    addAnimation(animations, positions, `Swapping the positions of ${firstValue} and ${secondValue}`)
 }
 
 export const addToArray = (animations, positions, value) => {
@@ -49,8 +80,10 @@ export const addToArray = (animations, positions, value) => {
             x: positions[i].arr[lastIndex].x,
             y: positions[i].arr[lastIndex].y
         })
+
+        positions[i].colors.push(positions[i].colors[lastIndex])
     }
-    addAnimation(animations, positions, `Add column have value: ${value} back to array`, 'TRANFORM')
+    addAnimation(animations, positions, `Add column have value: ${value} back to array`)
 }
 
 export const addToQueue = (animations, positions, value, toIndex) => {
@@ -82,6 +115,8 @@ export const addToQueue = (animations, positions, value, toIndex) => {
             x: positions[i].arr[lastIndex].x,
             y: positions[i].arr[lastIndex].y
         })
+
+        positions[i].colors.push(positions[i].colors[lastIndex])
     }
-    addAnimation(animations, positions, `Add column have value: ${value} to queue`, 'TRANFORM')
+    addAnimation(animations, positions, `Add column have value: ${value} to queue`)
 }

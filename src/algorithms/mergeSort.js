@@ -1,4 +1,4 @@
-import { changeColor, addToQueue, addToArray } from "../animations//animations"
+import { changeColor, addToQueue, addToArray, revertColor } from "../animations//animations"
 
 export const mergeSort = (array, start, end, animations, positions) => {
     if (start === end) return
@@ -15,8 +15,8 @@ export const mergeSort = (array, start, end, animations, positions) => {
     let tempArray = []
 
     while (i <= middle && j <= end) {
-        // Change color
-        //changeColor(animations, positions, [i, j], 'black')
+        // Change color animation
+        changeColor(animations, positions, [array[i], array[j]], 1)
 
         if (array[i] <= array[j]) {
             // Drop down
@@ -30,35 +30,23 @@ export const mergeSort = (array, start, end, animations, positions) => {
     }
     // Remain values
     while (i <= middle) {
-        // Change color
-        //changeColor(animations, positions, [i, i], 'black')
-
-        // Revert color
-        //changeColor(animations, positions, [i, j], 'yellow')
-
         // Overwrite value
         addToQueue(animations, positions, array[i], k)
         tempArray[k++] = array[i++]
     }
     // Remain values
     while (j <= end) {
-        // Change color
-        //changeColor(animations, positions, [j, j], 'black')
-
-        // Revert color
-        //changeColor(animations, positions, [i, j], 'yellow')
-
         // Overwrite value
         addToQueue(animations, positions, array[j], k)
         tempArray[k++] = array[j++]
     }
     // Overwrite array with tempArray
+    revertColor(animations, positions)
     for (let i = 0; i <= end; i++){
         if (tempArray[i]) {
             array[i] = tempArray[i]
             addToArray(animations, positions, tempArray[i])
         }
-        //changeColor(animations, positions, [i, i], 'yellow')
     }
 
 }
