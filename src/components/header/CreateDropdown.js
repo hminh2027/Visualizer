@@ -21,7 +21,7 @@ const CreateDropdown = () => {
             clearTimeouts(context.state.timers, dispatch)
             resetColumns()
             resetStore(dispatch)
-            dispatch({ type: 'UPDATE_ARRAY', payload: rs.array })
+            dispatch({ type: 'SET_ARRAY', payload: rs.array })
             
         }
         else setError(rs.error)
@@ -31,7 +31,7 @@ const CreateDropdown = () => {
         clearTimeouts(context.state.timers, dispatch)
         resetColumns()
         resetStore(dispatch)
-        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
+        dispatch({ type: 'SET_ARRAY', payload: generateUniqueArray(context.state.length) })
     }
 
     const arrayStringHandler = (arrayString) => {

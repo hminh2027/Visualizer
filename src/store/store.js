@@ -6,6 +6,7 @@ const initialState = {
     speed: 1000,
     sortingTab: 0,
     isSorting: false,
+    isShowDescription: false,
     lastAnimationIndex: 0,
     animations: [],
     timers: []
@@ -18,13 +19,13 @@ const StateProvider = ( { children } ) => {
     const [state, dispatch] = useReducer((state, action) => {
 
         switch(action.type) {
-            case 'UPDATE_ARRAY':
+            case 'SET_ARRAY':
                 return {...state, array: action.payload}
 
-            case 'UPDATE_SPEED':
+            case 'SET_SPEED':
                 return {...state, speed: action.payload}
 
-            case 'UPDATE_LENGTH':
+            case 'SET_LENGTH':
                 return {...state, length: action.payload}
 
             case 'SET_SORTING_TAB':
@@ -41,6 +42,9 @@ const StateProvider = ( { children } ) => {
                 
             case 'SET_TIMERS':
                 return {...state, timers: action.payload}
+
+            case 'SET_IS_SHOW_DESCRIPTION':
+                return {...state, isShowDescription: action.payload}
     
             default:
                 throw new Error()

@@ -42,14 +42,14 @@ export const swapPosition = (animations, positions, description, value, index) =
         if (positions[i].value === firstValue) {
             positions[i].arr.push({
                 x: positions[secondIndex].arr[lastIndex].x,
-                y: 0
+                y: positions[i].arr[lastIndex].y
             })
         }
 
         else if (positions[i].value === secondValue) {
             positions[i].arr.push({
                 x: positions[firstIndex].arr[lastIndex].x,
-                y: 0
+                y: positions[i].arr[lastIndex].y
             })
         }
         
@@ -63,7 +63,7 @@ export const swapPosition = (animations, positions, description, value, index) =
     addAnimation(animations, positions, description)
 }
 
-export const addToArray = (animations, positions, value) => {
+export const addToArray = (animations, positions, description, value) => {
     for (let i = 0; i < positions.length; i++) {
         
         const lastIndex = positions[i].arr.length - 1
@@ -80,12 +80,12 @@ export const addToArray = (animations, positions, value) => {
             y: positions[i].arr[lastIndex].y
         })
 
-        positions[i].colors.push(positions[i].colors[lastIndex])
+        positions[i].colors.push(0)
     }
-    addAnimation(animations, positions, `Add column have value: ${value} back to array`)
+    addAnimation(animations, positions, description)
 }
 
-export const addToQueue = (animations, positions, value, toIndex) => {
+export const addToQueue = (animations, positions, description, value, toIndex) => {
     const distancePerBar = positions[1].arr[0].x - positions[0].arr[0].x
     
     for (let i = 0; i < positions.length; i++) {
@@ -117,5 +117,5 @@ export const addToQueue = (animations, positions, value, toIndex) => {
 
         positions[i].colors.push(positions[i].colors[lastIndex])
     }
-    addAnimation(animations, positions, `Add column have value: ${value} to queue`)
+    addAnimation(animations, positions, description)
 }

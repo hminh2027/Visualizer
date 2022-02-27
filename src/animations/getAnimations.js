@@ -1,4 +1,5 @@
 import { bubbleSort } from '../algorithms/bubbleSort'
+import { insertionSort } from '../algorithms/insertionSort'
 import { mergeSort } from '../algorithms/mergeSort'
 import { selectionSort } from '../algorithms/selectionSort'
 import { getInitialPositions } from '../helpers/getInitialPositions'
@@ -33,5 +34,14 @@ export const getSelectionSortAnimations = (array) => {
 
     if (array.length <= 1) return array
     selectionSort(array.slice(), animations, positions)
+    return animations
+}
+
+export const getInsertionSortAnimations = (array) => {
+    const positions = getInitialPositions()
+    const animations = [{...animationTemplate, positions}]   
+
+    if (array.length <= 1) return array
+    insertionSort(array.slice(), animations, positions)
     return animations
 }

@@ -9,8 +9,8 @@ const SizeSlider = () => {
     const { dispatch } = context
 
     const changeSizeHandler = e => {
-        dispatch({ type: 'UPDATE_LENGTH', payload: e.target.value })
-        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(e.target.value) })
+        dispatch({ type: 'SET_LENGTH', payload: e.target.value })
+        dispatch({ type: 'SET_ARRAY', payload: generateUniqueArray(e.target.value) })
     }
 
     return (

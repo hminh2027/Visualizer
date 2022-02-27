@@ -7,6 +7,9 @@ import styles from './RightBar.module.css'
 
 const Rightbar = () => {
     const context = useContext(store)
+    const { dispatch } = context
+    
+    const [animation, setAnimation] = useState({})
 
     useEffect(()=>{
         const index = context.state.lastAnimationIndex
@@ -14,15 +17,16 @@ const Rightbar = () => {
 
     }, [context.state.lastAnimationIndex])
 
-    const [animation, setAnimation] = useState({})
-    const [isShowDescription, setIsShowDescription] = useState(false)
+    const setIsShowDescription = (isShow) => {
+        dispatch({ type: 'SET_IS_SHOW_DESCRIPTION', payload: isShow })
+    }
 
     return (
         <div className={styles.container}>
-            <div onClick={()=>setIsShowDescription(!isShowDescription)} className={`${styles.icon_wrapper} ${isShowDescription ? styles.rotateAnimation : ''}`}>
+            <div onClick={()=>setIsShowDescription(!context.state.isShowDescription)} className={`${styles.icon_wrapper} ${context.state.isShowDescription ? styles.rotateAnimation : ''}`}>
                 <GoChevronRight className={styles.icon}/>
             </div>
-            <div className={`${styles.description_wrapper} ${isShowDescription ? styles.slideLeft : ''}`}>
+            <div className={`${styles.description_wrapper} ${context.state.isShowDescription ? styles.slideLeft : ''}`}>
                 <div className={styles.description}>
                     {animation && animation.description}
                 </div>

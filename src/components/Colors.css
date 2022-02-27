@@ -1,0 +1,14 @@
+.default {
+    background-color: var(--bars)!important;
+    color: var(--text-bar)!important;
+}
+
+.compare {
+    background-color: var(--bars-compare)!important;
+    color: var(--text-bar-compare)!important;
+}
+
+.select {
+    background-color: var(--bars-select)!important;
+    color: var(--text-bar-select)!important;
+}

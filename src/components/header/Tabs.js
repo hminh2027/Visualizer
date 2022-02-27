@@ -15,7 +15,7 @@ const Tabs = () => {
         clearTimeouts(context.state.timers, dispatch)
         resetStore(dispatch)
         dispatch({ type: 'SET_SORTING_TAB', payload:  index})
-        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(context.state.length) })
+        dispatch({ type: 'SET_ARRAY', payload: generateUniqueArray(context.state.length) })
     }
 
     return (

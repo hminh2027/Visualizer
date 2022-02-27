@@ -1,51 +1,83 @@
 .blacknwhite-theme {
+    /* Background colors */
     --border-bg: black;
     --main-bg: white;
     --hover: rgb(39, 39, 39);
-    --bars: black;
+    /* Slider colors */
     --slider-bg: rgb(168, 168, 168);
     --slider: white;
+    /* Text colors */
     --text-active: white;
     --text-primary: white;
     --text-darker: rgb(168, 168, 168);
+    /* Bars colors */
+    --bars: black;
+    --bars-compare: #818181;
+    --bars-select: rgb(214, 77, 77);
     --text-bar: rgb(231, 231, 231);
+    --text-bar-compare: white;
+    --text-bar-select: white;
 }
 
 .christmas-theme {
+    /* Background colors */
     --border-bg: #AB1818;
     --main-bg: #d3cc9a;
     --hover: #800B1A;
-    --bars: #287548;
+    /* Slider colors */
     --slider-bg: #C58C35;
     --slider: #E9BB4F;
+    /* Text colors */
     --text-active: white;
     --text-primary: white;
     --text-darker: #E9BB4F;
+    /* Bars colors */
+    --bars: #287548;
+    --bars-compare: #AB1818;
+    --bars-select: #F9F7E7;
     --text-bar: #e2ae33;
+    --text-bar-compare: white;
+    --text-bar-select: #AB1818;
 }
 
 .sweet-theme {
+    /* Background colors */
     --border-bg: #D93C96;
     --main-bg: #FFDEF6;
     --hover: #F848B5;
-    --bars: #AA8DF6;
+    /* Slider colors */
     --slider-bg: #FFA5E3;
     --slider: #FFDEF6;
+    /* Text colors */
     --text-active: white;
     --text-primary: white;
     --text-darker: #FFDEF6;
+    /* Bars colors */
+    --bars: #AA8DF6;
+    --bars-compare: #ec53aa;
+    --bars-select: #b61570;
     --text-bar: white;
+    --text-bar-compare: white;
+    --text-bar-select: white;
 }
 
 .darkmode-theme {
+    /* Background colors */
     --border-bg: #152642;
     --main-bg: #506680;
     --hover: #2F4562;
-    --bars: #152642;
+    /* Slider colors */
     --slider-bg: rgb(168, 168, 168);
     --slider: white;
+    /* Text colors */
     --text-active: white;
     --text-primary: white;
     --text-darker: rgb(153, 153, 153);
+    /* Bars colors */
+    --bars: #152642;
+    --bars-compare: #9498aa;
+    --bars-select: rgb(238, 232, 232);
     --text-bar: white;
+    --text-bar-compare: black;
+    --text-bar-select: black;
 }

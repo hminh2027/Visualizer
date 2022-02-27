@@ -3,6 +3,7 @@ import { generateUniqueArray } from '../helpers/util'
 import { store } from '../store/store'
 import Rightbar from './sidebar/Rightbar'
 
+import './Colors.css'
 import styles from './Visualizer.module.css'
 
 const Visualizer = () => {
@@ -12,7 +13,7 @@ const Visualizer = () => {
     const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
 
     useEffect(()=>{
-        dispatch({ type: 'UPDATE_ARRAY', payload: generateUniqueArray(10) })
+        dispatch({ type: 'SET_ARRAY', payload: generateUniqueArray(10) })
 
     }, [context.length, dispatch])
     

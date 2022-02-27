@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import { MdSkipNext } from 'react-icons/md'
-import { animationHandler, transformHandler } from '../../../animations/animationsHandler.js'
+import { animationHandler } from '../../../animations/animationsHandler.js'
 import { clearTimeouts } from '../../../helpers/util'
 import { store } from '../../../store/store'
 
@@ -16,7 +16,6 @@ const NextButton = () => {
         const i = context.state.lastAnimationIndex + 1
         if(i >= context.state.animations.length) return
         animationHandler(i, context.state.animations, dispatch)
-        // transformHandler(i, context.state.animations[i].positions)
 
         dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i})
     }

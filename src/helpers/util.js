@@ -20,9 +20,12 @@ export const swap = (arr, a, b) => {
 export const resetColumns = () => {
     const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
     const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
-
-    for (let i = 0; i < arrayBars.length; i++) 
+    const classes = ['default', 'select', 'compare']
+    
+    for (let i = 0; i < arrayBars.length; i++) {
         arrayBars[i].style.transform = `translate(0, -${barsWrapper.offsetHeight / 2}px)`
+        arrayBars[i].classList.remove(...classes)
+    }
 }
 
 export const resetStore = (dispatch) => {

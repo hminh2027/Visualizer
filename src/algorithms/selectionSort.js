@@ -14,13 +14,13 @@ export const selectionSort = (array, animations, positions) => {
                 minIndex = j
                 swapped = true
                 // Change color animation
-                changeColor(animations, positions, `New minimum value now is ${auxiliaryArray[minIndex]}`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 1)
+                changeColor(animations, positions, `New minimum value now is ${auxiliaryArray[minIndex]}`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 2)
             }
         }
         
         if(swapped) {
             // Revert color
-            revertColor(animations, positions, `Swapping the minimum (${auxiliaryArray[minIndex]}) with the first unsorted element (${auxiliaryArray[i]})`)
+            changeColor(animations, positions, `Swapping the minimum (${auxiliaryArray[minIndex]}) with the first unsorted element (${auxiliaryArray[i]})`, [auxiliaryArray[minIndex], auxiliaryArray[i]], 1)
             // Swap animation
             swapPosition(animations, positions, `Swapping the minimum (${auxiliaryArray[minIndex]}) with the first unsorted element (${auxiliaryArray[i]})`, [auxiliaryArray[i], auxiliaryArray[minIndex]], [array.indexOf(auxiliaryArray[i]), array.indexOf(auxiliaryArray[minIndex])])
             
