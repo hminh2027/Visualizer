@@ -18,8 +18,8 @@ export const swap = (arr, a, b) => {
 }
 
 export const resetColumns = () => {
-    const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
-    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+    const arrayBars = document.getElementsByClassName('bar')
+    const barsWrapper = document.getElementsByClassName('bars_wrapper')[0]
     const classes = ['default', 'select', 'compare']
     
     for (let i = 0; i < arrayBars.length; i++) {

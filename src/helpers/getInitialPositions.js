@@ -1,7 +1,7 @@
 export const getInitialPositions = () => {
     let positions = []
     
-    const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
+    const arrayBars = document.getElementsByClassName('bar')
 
     for (let i = 0; i < arrayBars.length; i++) {
         // Initiate array

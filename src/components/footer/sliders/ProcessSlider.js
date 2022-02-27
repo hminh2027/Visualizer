@@ -1,13 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { animationHandler, transformHandler } from '../../../animations/animationsHandler.js'
+import { animationHandler } from '../../../animations/animationsHandler.js'
 import { store } from '../../../store/store'
 
 import styles from './ProcessSlider.module.css'
 
 const ProcessSlider = () => {
-    const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
-    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
-
     const context = useContext(store)
     const { dispatch } = context
 

@@ -1,4 +1,4 @@
-import { changeColor, addToQueue, addToArray, revertColor } from "../animations//animations"
+import { changeColor, addToQueue, addToArray } from "../animations//animations"
 
 export const mergeSort = (array, start, end, animations, positions) => {
     if (start === end) return

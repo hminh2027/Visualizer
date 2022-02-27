@@ -1,7 +1,7 @@
 export const animationsHandler = (animations, index, dispatch, speed) => {
     dispatch({ type: 'SET_IS_SORTING', payload: true })
-    const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
-    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+    const arrayBars = document.getElementsByClassName('bar')
+    const barsWrapper = document.getElementsByClassName('bars_wrapper')[0]
     const classes = ['default', 'compare', 'select']
     const timers = []
     let idx = index || 1
@@ -11,9 +11,9 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
         if(i === animations.length) {
             timers.push(
                 window.setTimeout(() => {
-                    console.log('reset')
                     dispatch({ type: 'SET_IS_SORTING', payload: false })
                     dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: -1 })
+
                 }, delay * speed))
             break
         }
@@ -49,11 +49,11 @@ export const animationsHandler = (animations, index, dispatch, speed) => {
 }
 
 export const animationHandler = (animationIndex, animations, dispatch) => {
-    const arrayBars = document.getElementsByClassName('Visualizer_bar__zgk33')
-    const barsWrapper = document.getElementsByClassName('Visualizer_bars_wrapper__jJVHx')[0]
+    const arrayBars = document.getElementsByClassName('bar')
+    const barsWrapper = document.getElementsByClassName('bars_wrapper')[0]
     const i = animationIndex
     const classes = ['default', 'compare', 'select']
-    
+
     for (let j = 0; j < animations[i].positions.length; j++) {
         arrayBars[j].style.transform = `translate(
             ${animations[i].positions[j].arr[i].x - animations[i].positions[j].arr[0].x}px,

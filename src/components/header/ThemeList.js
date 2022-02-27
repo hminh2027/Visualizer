@@ -14,7 +14,7 @@ const ThemeList = () => {
     return (
         <>
             {themesList.map((theme, index) => (
-                <ThemeItem key={index} index={index} setActiveItem={setActiveItem} active={activeItem == index ? true : false} name={theme.name} fileName={theme.fileName} icon={theme.icon} />
+                <ThemeItem key={index} index={index} setActiveItem={setActiveItem} active={activeItem === index ? true : false} name={theme.name} fileName={theme.fileName} icon={theme.icon} />
             ))}
         </>
     )

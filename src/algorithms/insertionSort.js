@@ -1,4 +1,4 @@
-import { addToArray, addToQueue, changeColor, revertColor, swapPosition } from "../animations/animations"
+import { addToArray, addToQueue, changeColor, swapPosition } from "../animations/animations"
 
 export const insertionSort = (array, animations, positions) => {
     // Use auxiliary array for sorting, and (main) array for indexing

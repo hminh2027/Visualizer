@@ -45,3 +45,15 @@ export const getInsertionSortAnimations = (array) => {
     insertionSort(array.slice(), animations, positions)
     return animations
 }
+
+export const getQuickSortAnimations = (array) => {
+    return []
+}
+
+export const getHeapSortAnimations = (array) => {
+    return []
+}
+
+export const getCountingSortAnimations = (array) => {
+    return []
+}
