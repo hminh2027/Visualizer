@@ -9,7 +9,7 @@ export const selectionSort = (array, animations, positions) => {
         let swapped = false
         for (let j = i + 1; j <auxiliaryArray.length; j++) {
             // Change color animation
-            changeColor(animations, positions, `Check if ${auxiliaryArray[j]} is smaller than the current minimum (${auxiliaryArray[minIndex]})`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 1)
+            changeColor(animations, positions, `Comparing if ${auxiliaryArray[j]} < ${auxiliaryArray[minIndex]} (current minimum)`,[auxiliaryArray[minIndex], auxiliaryArray[j]], 1)
             if(auxiliaryArray[j] < auxiliaryArray[minIndex]) {
                 minIndex = j
                 swapped = true
