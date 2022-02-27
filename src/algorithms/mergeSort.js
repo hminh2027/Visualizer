@@ -8,7 +8,7 @@ export const mergeSort = (array, start, end, animations, positions) => {
     doMerge(array, start, middle, end, animations, positions)
 }
   
-  const doMerge = (array, start, middle, end, animations, positions) => {
+const doMerge = (array, start, middle, end, animations, positions) => {
     let k = start
     let i = start
     let j = middle + 1
