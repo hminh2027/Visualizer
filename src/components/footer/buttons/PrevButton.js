@@ -19,7 +19,7 @@ const PrevButton = () => {
         dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i})
     }
     return (
-        <div onClick={moveAnimation} className={styles.container}>
+        <div id='prev-btn' onClick={moveAnimation} className={styles.container}>
             <MdSkipPrevious/>
         </div>
     )

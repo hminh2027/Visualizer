@@ -16,7 +16,7 @@ const PauseButton = () => {
     }
 
     return (
-        <div onClick={pausehanlder} className={styles.container}>
+        <div id='pause-btn' onClick={pausehanlder} className={styles.container}>
             <MdOutlinePause />
         </div>
     )

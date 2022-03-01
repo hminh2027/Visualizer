@@ -17,7 +17,7 @@ const PlayButton = () => {
     }
 
     return (
-        <div onClick={playHandler} className={styles.container}>
+        <div id='play-btn' onClick={playHandler} className={styles.container}>
             <MdPlayArrow />
         </div>
     )

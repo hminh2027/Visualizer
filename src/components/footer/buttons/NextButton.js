@@ -20,7 +20,7 @@ const NextButton = () => {
         dispatch({ type: 'SET_LAST_ANIMATION_INDEX', payload: i})
     }
     return (
-        <div onClick={moveAnimation} className={styles.container}>
+        <div id='next-btn' onClick={moveAnimation} className={styles.container}>
             <MdSkipNext />
         </div>
     )
