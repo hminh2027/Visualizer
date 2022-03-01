@@ -1,6 +1,7 @@
 import { bubbleSort } from '../algorithms/bubbleSort'
 import { insertionSort } from '../algorithms/insertionSort'
 import { mergeSort } from '../algorithms/mergeSort'
+import { quickSort } from '../algorithms/quickSort'
 import { selectionSort } from '../algorithms/selectionSort'
 import { getInitialPositions } from '../helpers/getInitialPositions'
 
@@ -47,7 +48,12 @@ export const getInsertionSortAnimations = (array) => {
 }
 
 export const getQuickSortAnimations = (array) => {
-    return []
+    const positions = getInitialPositions()
+    const animations = [{...animationTemplate, positions}]   
+
+    if (array.length <= 1) return array
+    quickSort(array.slice(), array.slice(), 0, array.length - 1, animations, positions)
+    return animations
 }
 
 export const getHeapSortAnimations = (array) => {

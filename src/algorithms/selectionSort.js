@@ -3,7 +3,7 @@ import { swap } from "../helpers/util"
 
 export const selectionSort = (array, animations, positions) => {
     // Use auxiliary array for sorting, and (main) array for indexing
-    const auxiliaryArray = array.slice()  
+    const auxiliaryArray = array.slice()
     for (let i = 0; i < auxiliaryArray.length - 1; i++) {
         let minIndex = i
         let swapped = false

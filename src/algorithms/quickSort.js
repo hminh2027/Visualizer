@@ -1,47 +1,33 @@
-import { swap } from "../helpers/util";
+import { changeColor, revertColor, swapPosition } from "../animations/animations"
+import { swap } from "../helpers/util"
 
-const partition = (arr, start, end) => {
- 
-    // pivot
-    let pivot = arr[end];
- 
-    // Index of smaller element and
-    // indicates the right position
-    // of pivot found so far
-    let i = (start - 1);
+const partition = (array, auxiliaryArray, start, end, animations, positions) => {
+    let pivot = auxiliaryArray[end]
+    changeColor(animations, positions, `Working on partion [${auxiliaryArray[start]}, ... , ${auxiliaryArray[end]}] (index ${start} to ${end})`, [auxiliaryArray[start], auxiliaryArray[end]], 1)
+    changeColor(animations, positions, `Select ${pivot} as pivot`, [pivot, pivot], 2)
+
+    let i = (start - 1)
  
     for (let j = start; j <= end - 1; j++) {
- 
-        // If current element is smaller
-        // than the pivot
-        if (arr[j] < pivot) {
- 
-            // Increment index of
-            // smaller element
-            i++;
-            swap(arr, i, j);
+        changeColor(animations, positions, `Checking if ${auxiliaryArray[j]} < ${pivot} (pivot)`, [auxiliaryArray[j], pivot], 1)
+
+        if (auxiliaryArray[j] < pivot) {
+            i++
+            swapPosition(animations, positions, `${auxiliaryArray[j]} < ${pivot} (pivot) is true. Swapping ${array[i]} (storeIndex = ${i}) with ${array[j]} (currentIndex = ${j}). Then storeIndex++`, [auxiliaryArray[i], auxiliaryArray[j]], [array.indexOf(auxiliaryArray[i]), array.indexOf(auxiliaryArray[j])])
+            swap(auxiliaryArray, i, j)
         }
     }
-    swap(arr, i + 1, end);
-    return (i + 1);
+    revertColor(animations, positions, `Iteration complete`)
+    swapPosition(animations, positions, `Swapping ${auxiliaryArray[end]} (pivot) with ${auxiliaryArray[i + 1]} (element at storeIndex + 1 = ${i+1})`, [auxiliaryArray[i + 1], auxiliaryArray[end]], [array.indexOf(auxiliaryArray[i + 1]), array.indexOf(auxiliaryArray[end])])
+
+    swap(auxiliaryArray, i + 1, end)
+    return (i + 1)   
 }
  
-/* The main function that implements QuickSort
-          arr[] --> Array to be sorted,
-          start --> Starting index,
-          end --> Ending index
- */
-export const quickSort = (arr, start, end) => {
-    // const auxiliaryArray = array.slice()
+export const quickSort = (array, auxiliaryArray, start, end, animations, positions) => {
     if (start < end) {
- 
-        // pi is partitioning index, arr[p]
-        // is now at right place
-        let middle = partition(arr, start, end);
- 
-        // Separately sort elements before
-        // partition and after partition
-        quickSort(arr, start, middle - 1);
-        quickSort(arr, middle + 1, end);
+         let middle = partition(array, auxiliaryArray, start, end, animations, positions)
+        quickSort(array, auxiliaryArray, start, middle - 1, animations, positions)
+        quickSort(array, auxiliaryArray, middle + 1, end, animations, positions)
     }
 }
