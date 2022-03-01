@@ -26,7 +26,7 @@ const partition = (array, auxiliaryArray, start, end, animations, positions) => 
  
 export const quickSort = (array, auxiliaryArray, start, end, animations, positions) => {
     if (start < end) {
-         let middle = partition(array, auxiliaryArray, start, end, animations, positions)
+        let middle = partition(array, auxiliaryArray, start, end, animations, positions)
         quickSort(array, auxiliaryArray, start, middle - 1, animations, positions)
         quickSort(array, auxiliaryArray, middle + 1, end, animations, positions)
     }
