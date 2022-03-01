@@ -14,38 +14,41 @@ const doMerge = (array, start, middle, end, animations, positions) => {
     let j = middle + 1
     let tempArray = []
 
+    // Mark the working range of array
+    changeColor(animations, positions, `Working on partion [${array[i]}, ... , ${array[j]}] (index ${i} to ${j})`, [array[i], array[j]], 1)
+
     while (i <= middle && j <= end) {
-        // Change color animation
+        // Mark the compared columns
         changeColor(animations, positions, `Comparing ${array[i]} and ${array[j]}, add the smaller to queue`, [array[i], array[j]], 1)
 
         if (array[i] <= array[j]) {
-            // Change color animation
+            // Mark the selected column
             changeColor(animations, positions, `Since ${array[i]} < ${array[j]}, select the ${array[i]}`, [array[i], array[i]], 2)
-            // Drop down
+            // Add animation
             addToQueue(animations, positions, `Add the selected element (${array[i]}) to queue`, array[i], k)
             tempArray[k++] = array[i++]
         } 
         else {
-            // Change color animation
+            // Mark the selected column
             changeColor(animations, positions, `Since ${array[i]} > ${array[j]}, select the ${array[j]}`, [array[j], array[j]], 2)
-            // Dropdown
+            // Add animation
             addToQueue(animations, positions, `Add the selected element (${array[j]}) to queue`, array[j], k)
             tempArray[k++] = array[j++]
         }
     }
     // Remain values
     while (i <= middle) {
-        // Change color animation
+        // Mark the selected column
         changeColor(animations, positions, `Since right partion is empty, select the remain ${array[i]}`, [array[i], array[i]], 2)
-        // Overwrite value
+        // Add animation
         addToQueue(animations, positions, `Add the selected element (${array[i]}) to queue`, array[i], k)
         tempArray[k++] = array[i++]
     }
     // Remain values
     while (j <= end) {
-         // Change color animation
+        // Mark the selected column
          changeColor(animations, positions, `Since left partion is empty, select the remain ${array[j]}`, [array[j], array[j]], 2)
-        // Overwrite value
+        // Add animation
         addToQueue(animations, positions, `Add the selected element (${array[j]}) to queue`, array[j], k)
         tempArray[k++] = array[j++]
     }
@@ -53,6 +56,7 @@ const doMerge = (array, start, middle, end, animations, positions) => {
     for (let i = 0; i <= end; i++){
         if (tempArray[i]) {
             array[i] = tempArray[i]
+            // Add animation
             addToArray(animations, positions, `Copying (${tempArray[i]}) from queue back to the original array`, tempArray[i])
         }
     }

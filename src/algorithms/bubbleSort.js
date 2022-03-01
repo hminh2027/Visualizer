@@ -1,4 +1,4 @@
-import { changeColor, swapPosition } from "../animations/animations"
+import { changeColor, revertColor, swapPosition } from "../animations/animations"
 import { swap } from "../helpers/util"
 
 export const bubbleSort = (array, animations, positions) => {
@@ -6,7 +6,7 @@ export const bubbleSort = (array, animations, positions) => {
     const auxiliaryArray = array.slice()
     for (let i = 0; i < auxiliaryArray.length; i++) {
         for (let j = i + 1; j <auxiliaryArray.length; j++) {
-            // Change color animation
+            // Mark compared columns
             changeColor(animations, positions, `Checking if ${auxiliaryArray[i]} > ${auxiliaryArray[j]}, then swap them if true`,[auxiliaryArray[i], auxiliaryArray[j]], 1)
             if(auxiliaryArray[i] > auxiliaryArray[j]) {
                 // Swap animation
@@ -15,5 +15,6 @@ export const bubbleSort = (array, animations, positions) => {
                 swap(auxiliaryArray, i, j)
             }
         }
+        revertColor(animations, positions, `Iteration complete`)
     }
 }
