@@ -7,8 +7,7 @@ import { StateProvider } from './store/store'
 import './themes/themes.css'
 
 function App() {
-    
-    
+    const modal = document.getElementById('modal')
     return (
         <StateProvider>
             <div id='app' style={{width: '100%', height: '100%'}} className='blacknwhite-theme'>

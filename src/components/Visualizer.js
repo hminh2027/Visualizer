@@ -1,7 +1,11 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import ReactDOM from 'react-dom'
+
 import { generateUniqueArray } from '../helpers/util'
 import { store } from '../store/store'
 import Rightbar from './sidebar/Rightbar'
+import Modal from './utils/Modal'
+import Tutorial from './modal/Tutorial'
 
 import './Colors.css'
 import './Visualizer.css'
@@ -16,6 +20,8 @@ const Visualizer = () => {
         dispatch({ type: 'SET_ARRAY', payload: generateUniqueArray(10) })
 
     }, [context.length, dispatch])
+
+    const [isShowTutorial, setIsShowTutorial] = useState(true)
     
 
     return (
@@ -31,6 +37,12 @@ const Visualizer = () => {
                 </div>          
             </div>
             <div className='right_bar'><Rightbar /></div>
+
+            {isShowTutorial && ReactDOM.createPortal(
+            <Modal setIsEdit={setIsShowTutorial} width={'50%'} height={'70%'} >
+                <Tutorial setState={setIsShowTutorial} />
+            </Modal>
+            , modal)}
         </div>
         
     )
