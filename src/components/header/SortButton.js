@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import { animationsHandler } from '../../animations/animationsHandler.js'
-import { getBubbleSortAnimations, getCountingSortAnimations, getHeapSortAnimations, getInsertionSortAnimations, getMergeSortAnimations, getQuickSortAnimations, getSelectionSortAnimations } from '../../animations/getAnimations'
+import { getBubbleSortAnimations, getHeapSortAnimations, getInsertionSortAnimations, getMergeSortAnimations, getQuickSortAnimations, getSelectionSortAnimations } from '../../animations/getAnimations'
 import { store } from '../../store/store'
 
 import styles from './SortButton.module.css'
@@ -16,8 +16,7 @@ const SortButton = () => {
         getSelectionSortAnimations, 
         getInsertionSortAnimations, 
         getQuickSortAnimations, 
-        getHeapSortAnimations, 
-        getCountingSortAnimations
+        getHeapSortAnimations
     ]
 
     const sortingHandler = index => {

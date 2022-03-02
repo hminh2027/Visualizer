@@ -8,7 +8,7 @@ const Tabs = () => {
     const context = useContext(store)
     const { dispatch } = context
 
-    const menuList = ['Bubble Sort',  'Merge Sort', 'Selection Sort', 'Insertion Sort', 'Quick Sort', 'Heap Sort', 'Counting Sort']
+    const menuList = ['Bubble Sort',  'Merge Sort', 'Selection Sort', 'Insertion Sort', 'Quick Sort', 'Heap Sort']
 
     const setSortingTab = index => {
         resetColumns()

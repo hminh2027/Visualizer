@@ -66,6 +66,6 @@ export const getHeapSortAnimations = (array) => {
     return animations
 }
 
-export const getCountingSortAnimations = (array) => {
-    return []
-}
+// export const getCountingSortAnimations = (array) => {
+//     return []
+// }
