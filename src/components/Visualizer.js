@@ -14,6 +14,7 @@ const Visualizer = () => {
     const context = useContext(store)
     const { dispatch } = context
 
+    const modal = document.getElementById('modal')
     const barsWrapper = document.getElementsByClassName('bars_wrapper')[0]
 
     useEffect(()=>{
