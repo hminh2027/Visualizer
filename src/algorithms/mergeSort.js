@@ -15,7 +15,7 @@ const doMerge = (array, start, middle, end, animations, positions) => {
     let tempArray = []
 
     // Mark the working range of array
-    changeColor(animations, positions, `Working on partion [${array[i]}, ... , ${array[j]}] (index ${i} to ${j})`, [array[i], array[j]], 1)
+    changeColor(animations, positions, `Working on partion [${array[start]}, ... , ${array[end]}] (index ${i} to ${end})`, [array[start], array[end]], 1)
 
     while (i <= middle && j <= end) {
         // Mark the compared columns

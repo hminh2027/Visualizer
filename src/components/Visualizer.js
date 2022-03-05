@@ -24,7 +24,6 @@ const Visualizer = () => {
 
     const [isShowTutorial, setIsShowTutorial] = useState(true)
     
-
     return (
         <div className='container'>
             <div className='left_bar'></div>
@@ -40,7 +39,7 @@ const Visualizer = () => {
             <div className='right_bar'><Rightbar /></div>
 
             {isShowTutorial && ReactDOM.createPortal(
-            <Modal setIsEdit={setIsShowTutorial} width={'50%'} height={'70%'} >
+            <Modal width='50%' height='70%' >
                 <Tutorial setState={setIsShowTutorial} />
             </Modal>
             , modal)}
