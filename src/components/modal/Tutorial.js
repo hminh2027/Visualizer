@@ -101,8 +101,8 @@ const Tutorial = ({setState}) => {
             <div className={styles.btn_group}>
                 <button className={styles.btn} onClick={()=>setState(false)}>Skip Tutorial</button>
                 <div className={styles.change_index_btn_group}>
-                    <button className={styles.btn} onClick={()=>changePageIndex(-1)}>Previous</button>
-                    <button className={styles.btn} onClick={()=>changePageIndex(1)}>Next</button>
+                    {pageIndex !== 0 && <button className={styles.btn} onClick={()=>changePageIndex(-1)}>Previous</button>}
+                    {pageIndex !== pages.length-1 && <button className={styles.btn} onClick={()=>changePageIndex(1)}>Next</button>}
                 </div>       
             </div>
         </div>           

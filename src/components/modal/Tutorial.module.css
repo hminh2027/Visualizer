@@ -55,13 +55,13 @@
 }
 
 .change_index_btn_group {
-    width: 20%;
     display: flex;
     justify-content: space-between;
 }
 
 .btn {
     padding: 1rem;
+    margin: 0 1rem;
     background-color: black;
     color: white;
     border-radius: 5px;
